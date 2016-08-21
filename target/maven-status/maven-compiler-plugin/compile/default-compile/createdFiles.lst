@@ -1,0 +1,8 @@
+entities\Servico.class
+entities\HistoricoCredito.class
+br\com\gym\mylocalgym\configuration\HibernateUtil.class
+entities\Academia.class
+br\com\gym\mylocalgym\configuration\NovoHibernateUtil.class
+entities\Cliente.class
+br\com\gym\mylocalgym\main\Teste.class
+entities\HistoricoTransacao.class

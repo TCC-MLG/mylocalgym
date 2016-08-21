@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21/08/2016 12:05:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.Cliente" table="cliente" catalog="mylocalgym" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" length="30" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="30" />
+        </property>
+        <property name="telefone" type="string">
+            <column name="telefone" length="13" />
+        </property>
+        <property name="apelido" type="string">
+            <column name="apelido" length="10" />
+        </property>
+        <property name="senha" type="string">
+            <column name="senha" length="8" />
+        </property>
+        <property name="cpf" type="java.lang.Integer">
+            <column name="cpf" />
+        </property>
+        <property name="exameMedico" type="string">
+            <column name="exame_medico" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="30" />
+        </property>
+        <property name="cidade" type="string">
+            <column name="cidade" length="20" />
+        </property>
+        <property name="endereco" type="string">
+            <column name="endereco" length="30" />
+        </property>
+        <property name="validadeSaldo" type="date">
+            <column name="validade_saldo" length="10" />
+        </property>
+        <property name="saldo" type="big_decimal">
+            <column name="saldo" precision="5" />
+        </property>
+        <property name="ultimaRecarga" type="date">
+            <column name="ultima_recarga" length="10" />
+        </property>
+        <set name="historicoTransacaos" table="historico_transacao" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_cliente" not-null="true" />
+            </key>
+            <one-to-many class="entities.HistoricoTransacao" />
+        </set>
+        <set name="historicoCreditos" table="historico_credito" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_cliente" not-null="true" />
+            </key>
+            <one-to-many class="entities.HistoricoCredito" />
+        </set>
+    </class>
+</hibernate-mapping>
