@@ -1,10 +1,12 @@
 package br.com.gym.mylocalgym.service;
 
+import entities.Cliente;
+
 /**
  * @author Matheus
  */
 public interface LoginService {
    
-    boolean autenticar();
+    Cliente autenticar(String nome, String senha);
     
 }

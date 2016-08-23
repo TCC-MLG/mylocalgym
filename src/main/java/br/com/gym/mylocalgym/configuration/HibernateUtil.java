@@ -5,6 +5,7 @@
  */
 package br.com.gym.mylocalgym.configuration;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -27,5 +28,14 @@ public class HibernateUtil {
         }
 
         return sessionFactory;
+    }
+
+    public static Session session() {
+        
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        return session;
     }
 }

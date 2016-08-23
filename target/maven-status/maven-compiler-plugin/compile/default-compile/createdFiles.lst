@@ -3,10 +3,13 @@ br\com\gym\mylocalgym\repository\LoginRepository.class
 entities\HistoricoCredito.class
 br\com\gym\mylocalgym\configuration\HibernateUtil.class
 entities\Academia.class
+br\com\gym\mylocalgym\presenters\Presenter.class
 br\com\gym\mylocalgym\repository\impl\LoginRepositoryImpl.class
 br\com\gym\mylocalgym\service\LoginService.class
 entities\Cliente.class
 br\com\gym\mylocalgym\main\Teste.class
 br\com\gym\mylocalgym\resource\LoginResource.class
+br\com\gym\mylocalgym\presenters\LoginPresenter.class
+br\com\gym\mylocalgym\configuration\RESTApplication.class
 entities\HistoricoTransacao.class
 br\com\gym\mylocalgym\service\impl\LoginServiceImpl.class

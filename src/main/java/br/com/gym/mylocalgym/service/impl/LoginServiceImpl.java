@@ -2,6 +2,7 @@ package br.com.gym.mylocalgym.service.impl;
 
 import br.com.gym.mylocalgym.repository.LoginRepository;
 import br.com.gym.mylocalgym.service.LoginService;
+import entities.Cliente;
 import javax.inject.Inject;
 
 /**
@@ -13,9 +14,10 @@ public class LoginServiceImpl implements LoginService {
     private LoginRepository loginRepository;
 
     @Override
-    public boolean autenticar() {
-
-        return loginRepository.autenticar();
+    public Cliente autenticar(String nome, String senha) {
+        
+        return this.loginRepository.autenticar(nome, senha);
+    
     }
 
 }
