@@ -15,14 +15,22 @@ public class LoginRepositoryImpl implements LoginRepository {
     @Override
     public Cliente autenticar(String apelido, String senha) {
 
-        Cliente cliente = (Cliente) session.createQuery("FROM Cliente c WHERE c.apelido = :apelido ")
-                .setParameter("apelido", apelido)
-                .uniqueResult();
+        try {
 
-        if (cliente != null) {
-            if (cliente.getSenha().equals(senha)) {
-                return cliente;
+            Cliente cliente = (Cliente) session.createQuery("FROM Cliente c WHERE c.apelido = :apelido ")
+                    .setParameter("apelido", apelido)
+                    .uniqueResult();
+
+            if (cliente != null) {
+                if (cliente.getSenha().equals(senha)) {
+                    return cliente;
+                }
             }
+
+        } catch (Exception e) {
+
+            return null;
+
         }
         return null;
     }

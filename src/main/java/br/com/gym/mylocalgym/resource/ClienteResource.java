@@ -1,7 +1,7 @@
 package br.com.gym.mylocalgym.resource;
 
-import br.com.gym.mylocalgym.models.Carro;
 import br.com.gym.mylocalgym.service.ClienteService;
+import entities.Cliente;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -23,9 +23,9 @@ public class ClienteResource {
     @POST
     @Path("/cadastrar")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response cadastrarCliente(Carro carro) {
+    public Response cadastrarCliente(Cliente cliente) {
 
-        Boolean cadastrado = this.clienteService.cadastrarCliente(null);
+        Boolean cadastrado = this.clienteService.cadastrarCliente(cliente);
         
         return cadastrado == true ? ok().build() : status(Response.Status.BAD_REQUEST).build();
     }

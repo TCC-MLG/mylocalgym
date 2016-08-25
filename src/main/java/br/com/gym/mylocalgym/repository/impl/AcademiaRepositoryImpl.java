@@ -16,9 +16,17 @@ public class AcademiaRepositoryImpl implements AcademiaRepository {
     @Override
     public boolean cadastrar(Academia academia) {
 
-        Integer id = (Integer) this.session.save(academia);
-        
-        return id != null ? true : false;
+        try {
+
+            Integer id = (Integer) this.session.save(academia);
+
+            return id != null;
+
+        } catch (Exception e) {
+
+            return false;
+
+        }
     }
 
 }

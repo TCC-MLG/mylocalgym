@@ -15,9 +15,17 @@ public class ClienteRepositoryImpl implements ClienteRepository {
     @Override
     public Boolean cadastrarCliente(Cliente cliente) {
 
-        Integer id = (Integer) this.session.save(cliente);
-        
-        return id != null ? true : false;
+        try {
+
+            Integer id = (Integer) this.session.save(cliente);
+
+            return id != null;
+
+        } catch (Exception e) {
+
+            return false;
+
+        }
 
     }
 
