@@ -1,7 +1,7 @@
 br\com\gym\mylocalgym\repository\LoginRepository.class
-br\com\gym\mylocalgym\models\Carro.class
 br\com\gym\mylocalgym\repository\impl\ClienteRepositoryImpl.class
 br\com\gym\mylocalgym\configuration\HibernateUtil.class
+br\com\gym\mylocalgym\presenters\LoginAcademiaPresenter.class
 br\com\gym\mylocalgym\resource\AcademiaResource.class
 entities\Academia.class
 br\com\gym\mylocalgym\presenters\Presenter.class

@@ -1,5 +1,4 @@
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\main\Teste.java
-C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\models\Carro.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\configuration\RESTApplication.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\AcademiaRepository.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\LoginRepository.java
@@ -11,6 +10,7 @@ C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\servic
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\entities\HistoricoTransacao.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\LoginPresenter.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\impl\ClienteRepositoryImpl.java
+C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\LoginAcademiaPresenter.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\entities\Cliente.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\impl\AcademiaServiceImpl.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\configuration\HibernateUtil.java

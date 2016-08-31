@@ -1,7 +1,9 @@
 package br.com.gym.mylocalgym.resource;
 
+import br.com.gym.mylocalgym.presenters.LoginAcademiaPresenter;
 import br.com.gym.mylocalgym.presenters.LoginPresenter;
 import br.com.gym.mylocalgym.service.LoginService;
+import entities.Academia;
 import entities.Cliente;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -27,10 +29,22 @@ public class LoginResource {
     public Response autenticar(@PathParam("login") String login, @PathParam("senha") String senha) {
 
         Cliente cliente = this.loginService.autenticar(login, senha);
-        
+
         LoginPresenter presenter = new LoginPresenter(cliente);
-        
+
         return cliente != null ? ok(presenter).build() : Response.noContent().build();
+    }
+
+    @GET
+    @Path("/academia/{cnpj}/{senha}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response autenticarAcademia(@PathParam("cnpj") String cnpj, @PathParam("senha") String senha) {
+
+        Academia academia = this.loginService.autenticarAcademia(cnpj, senha);
+
+        LoginAcademiaPresenter presenter = new LoginAcademiaPresenter(academia);
+
+        return academia != null ? ok(presenter).build() : Response.noContent().build();
     }
 
 }
