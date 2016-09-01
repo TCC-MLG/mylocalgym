@@ -1,6 +1,6 @@
 package br.com.gym.mylocalgym.presenters;
 
-import entities.Cliente;
+import br.com.gym.mylocalgym.entities.Cliente;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 

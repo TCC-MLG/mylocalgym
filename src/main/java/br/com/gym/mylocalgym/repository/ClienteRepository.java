@@ -1,6 +1,6 @@
 package br.com.gym.mylocalgym.repository;
 
-import entities.Cliente;
+import br.com.gym.mylocalgym.entities.Cliente;
 
 /**
  *

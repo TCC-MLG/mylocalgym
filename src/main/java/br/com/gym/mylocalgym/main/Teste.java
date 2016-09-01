@@ -6,7 +6,7 @@
 package br.com.gym.mylocalgym.main;
 
 import br.com.gym.mylocalgym.configuration.HibernateUtil;
-import entities.Cliente;
+import br.com.gym.mylocalgym.entities.Cliente;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -16,7 +16,7 @@ import org.hibernate.SessionFactory;
  */
 public class Teste {
 
-    public void main() {
+    public static void main(String[] args) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
         Cliente cliente = new Cliente();
@@ -27,7 +27,7 @@ public class Teste {
         Integer inte = (Integer) session.save(cliente);
         
         System.out.println(""+inte);
-
+ 
     }
 
 }
