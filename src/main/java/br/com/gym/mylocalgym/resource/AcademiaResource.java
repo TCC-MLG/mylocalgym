@@ -1,6 +1,7 @@
 package br.com.gym.mylocalgym.resource;
 
 import br.com.gym.mylocalgym.entities.Academia;
+import br.com.gym.mylocalgym.parameter.AcademiaParameter;
 import br.com.gym.mylocalgym.service.AcademiaService;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -23,9 +24,11 @@ public class AcademiaResource {
     @POST
     @Path("/cadastrar")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response cadastrarAcademia(Academia academia) {
+    public Response cadastrarAcademia(AcademiaParameter academia) {
 
-        boolean salvo = this.academiaService.cadastrar(academia);
+        Academia academiaEntity = new Academia(academia);
+        
+        boolean salvo = this.academiaService.cadastrar(academiaEntity);
 
         return salvo ? ok().build() : status(Response.Status.BAD_REQUEST).build();
 

@@ -5,6 +5,7 @@
  */
 package br.com.gym.mylocalgym.entities;
 
+import br.com.gym.mylocalgym.parameter.AcademiaParameter;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -99,6 +100,18 @@ public class Academia implements Serializable {
         this.estado = estado;
         this.cidade = cidade;
         this.endereco = endereco;
+    }
+
+    public Academia(AcademiaParameter academia) {
+
+        this.email = academia.getEmail();
+        this.senha = academia.getSenha();
+        this.telefone = academia.getTelefone();
+        this.cnpj = academia.getCnpj();
+        this.estado = academia.getEstado();
+        this.cidade = academia.getCidade();
+        this.endereco = academia.getEndereco();
+
     }
 
     public Integer getId() {
@@ -197,5 +210,5 @@ public class Academia implements Serializable {
     public String toString() {
         return "br.com.gym.mylocalgym.models.Academia[ id=" + id + " ]";
     }
-    
+
 }

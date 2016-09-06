@@ -5,21 +5,18 @@
  */
 package br.com.gym.mylocalgym.entities;
 
+import br.com.gym.mylocalgym.parameter.ClienteParameter;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -78,6 +75,23 @@ public class Cliente implements Serializable {
     private BigDecimal saldo;
   
     public Cliente() {
+    }
+    
+    public Cliente(ClienteParameter clienteParameter) {
+        
+   this.nome = clienteParameter.getNome();
+   this.email = clienteParameter.getEmail() ;
+   this.telefone = clienteParameter.getTelefone();
+   this.apelido = clienteParameter.getApelido();
+   this.senha = clienteParameter.getSenha();
+   this.cpf = clienteParameter.getCpf();
+   this.exameMedico = clienteParameter.getExameMedico();
+   this.estado = clienteParameter.getEstado();
+   this.cidade = clienteParameter.getCidade();
+   this.endereco = clienteParameter.getApelido();
+   this.validadeSaldo = clienteParameter.getValidadeSaldo();
+   this.saldo = clienteParameter.getSaldo();
+        
     }
 
     public Cliente(Integer id) {

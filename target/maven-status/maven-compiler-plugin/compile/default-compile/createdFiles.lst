@@ -1,3 +1,4 @@
+br\com\gym\mylocalgym\parameter\AcademiaParameter.class
 br\com\gym\mylocalgym\repository\LoginRepository.class
 br\com\gym\mylocalgym\repository\impl\ClienteRepositoryImpl.class
 br\com\gym\mylocalgym\configuration\HibernateUtil.class
@@ -24,3 +25,4 @@ br\com\gym\mylocalgym\presenters\LoginPresenter.class
 br\com\gym\mylocalgym\service\impl\ClienteServiceImpl.class
 br\com\gym\mylocalgym\configuration\RESTApplication.class
 br\com\gym\mylocalgym\repository\AcademiaRepository.class
+br\com\gym\mylocalgym\parameter\ClienteParameter.class

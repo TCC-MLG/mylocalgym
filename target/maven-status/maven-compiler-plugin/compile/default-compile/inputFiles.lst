@@ -8,9 +8,11 @@ C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\servic
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\impl\AcademiaRepositoryImpl.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\AcademiaService.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\impl\LoginServiceImpl.java
+C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\parameter\AcademiaParameter.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\LoginPresenter.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\impl\ClienteRepositoryImpl.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\LoginAcademiaPresenter.java
+C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\parameter\ClienteParameter.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\impl\AcademiaServiceImpl.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\configuration\HibernateUtil.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\ClienteRepository.java
