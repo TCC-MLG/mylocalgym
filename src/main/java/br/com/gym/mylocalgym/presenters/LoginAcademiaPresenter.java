@@ -16,9 +16,12 @@ public class LoginAcademiaPresenter {
     private Integer id;
 
     public LoginAcademiaPresenter(Academia academia) {
-        
-        this.id = academia.getId();
 
+        if (academia != null) {
+
+            this.id = academia.getId();
+
+        }
     }
 
     public Integer getId() {
