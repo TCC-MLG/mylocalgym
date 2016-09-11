@@ -9,7 +9,8 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import static javax.ws.rs.core.Response.ok;
+import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
+import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.status;
 
 /**
@@ -30,7 +31,7 @@ public class AcademiaResource {
         
         boolean salvo = this.academiaService.cadastrar(academiaEntity);
 
-        return salvo ? ok().build() : status(Response.Status.BAD_REQUEST).build();
+        return salvo ? status(NO_CONTENT).build() : status(BAD_REQUEST).build();
 
     }
 
