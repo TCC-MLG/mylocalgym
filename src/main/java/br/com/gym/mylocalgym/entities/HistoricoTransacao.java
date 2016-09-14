@@ -5,7 +5,8 @@
  */
 package br.com.gym.mylocalgym.entities;
 
-import br.com.gym.mylocalgym.model.HistoricoTransacaoModel;
+import br.com.gym.mylocalgym.model.FaturamentoModel;
+import br.com.gym.mylocalgym.utils.DateUtil;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -52,11 +53,11 @@ public class HistoricoTransacao implements Serializable {
     @ManyToOne(optional = false)
     private Cliente idCliente;
 
-    public HistoricoTransacaoModel convert() {
+    public FaturamentoModel convert() {
 
-        HistoricoTransacaoModel transacaoParameter = new HistoricoTransacaoModel();
+        FaturamentoModel transacaoParameter = new FaturamentoModel();
         
-        transacaoParameter.setDataTransacao(this.dataTransacao);
+        transacaoParameter.setDataTransacao(DateUtil.convertDateToLocalDate(this.dataTransacao));
         transacaoParameter.setValor(this.valor);
         
         return transacaoParameter;
