@@ -53,15 +53,19 @@ public class HistoricoTransacao implements Serializable {
     @ManyToOne(optional = false)
     private Cliente idCliente;
 
+    @JoinColumn(name = "id_academia", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Academia idAcademia;
+
     public FaturamentoModel convert() {
 
         FaturamentoModel transacaoParameter = new FaturamentoModel();
-        
+
         transacaoParameter.setDataTransacao(DateUtil.convertDateToLocalDate(this.dataTransacao));
         transacaoParameter.setValor(this.valor);
-        
+
         return transacaoParameter;
-        
+
     }
 
     public HistoricoTransacao() {
@@ -126,6 +130,14 @@ public class HistoricoTransacao implements Serializable {
     @Override
     public String toString() {
         return "br.com.gym.mylocalgym.models.HistoricoTransacao[ id=" + id + " ]";
+    }
+
+    public Academia getIdAcademia() {
+        return idAcademia;
+    }
+
+    public void setIdAcademia(Academia idAcademia) {
+        this.idAcademia = idAcademia;
     }
 
 }

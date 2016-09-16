@@ -10,21 +10,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
-import static javax.ws.rs.core.Response.ok;
-import static javax.ws.rs.core.Response.status;
-import static javax.ws.rs.core.Response.ok;
-import static javax.ws.rs.core.Response.status;
 import br.com.gym.mylocalgym.service.FaturamentoService;
-import static javax.ws.rs.core.Response.ok;
-import static javax.ws.rs.core.Response.status;
-import static javax.ws.rs.core.Response.ok;
-import static javax.ws.rs.core.Response.status;
-import static javax.ws.rs.core.Response.ok;
-import static javax.ws.rs.core.Response.status;
-import static javax.ws.rs.core.Response.ok;
-import static javax.ws.rs.core.Response.status;
-import static javax.ws.rs.core.Response.ok;
-import static javax.ws.rs.core.Response.status;
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 import static javax.ws.rs.core.Response.ok;
 import static javax.ws.rs.core.Response.status;
 
@@ -55,6 +44,19 @@ public class FaturamentoResource {
         List<FaturamentoModel> list = this.service.listarTransacoesPorPeriodo(periodo);
         return (Response) (!list.isEmpty() ? ok(list).build() : status(NO_CONTENT).build());
 
+    }
+
+    @GET
+    @Path("/periodos/{academiaId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response listarFaturamento(
+            @PathParam("academiaId") Integer academiaId) {
+
+        Map<String, BigDecimal> valor = new HashMap<String, BigDecimal>();
+
+        valor = this.service.listarFaturamento(academiaId);
+
+        return (Response) (valor != null ? ok(valor).build() : status(NO_CONTENT).build());
     }
 
 }

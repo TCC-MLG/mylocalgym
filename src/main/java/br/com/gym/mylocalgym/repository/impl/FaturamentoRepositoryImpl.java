@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.hibernate.Session;
 import br.com.gym.mylocalgym.repository.FaturamentoRepository;
+import java.math.BigDecimal;
 
 /**
  * @author Luciano
@@ -53,8 +54,24 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
         return list != null ? parameter : null;
     }
 
+    @Override
+    public BigDecimal listarFaturamento(Integer dias, Integer academiaId) {
+
+        BigDecimal faturamentoMensal = (BigDecimal) this.session.createSQLQuery("SELECT sum(h.valor) "
+                + "FROM mylocalgym.historico_transacao h "
+                + "where h.id_academia = :academiaId "
+                + "AND h.data_transacao "
+                + "between NOW() - INTERVAL :dias DAY "
+                + "AND NOW()").setParameter("academiaId", academiaId)
+                .setParameter("dias", dias)
+                .uniqueResult();
+
+        return faturamentoMensal;
+
+    }
+
     private Date convertStringToDate(String periodo) {
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date data = null;
         try {
             data = new Date(format.parse(periodo).getTime());
