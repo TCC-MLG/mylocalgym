@@ -36,9 +36,9 @@ public class FaturamentoServiceImpl implements FaturamentoService {
 
         valor.put("semanal", this.repository.listarFaturamento(7, academiaId));
         valor.put("mensal", this.repository.listarFaturamento(30, academiaId));
-        valor.put("Trimestral", this.repository.listarFaturamento(90, academiaId));
-        valor.put("Semestral", this.repository.listarFaturamento(180, academiaId));
-        valor.put("Anual", this.repository.listarFaturamento(365, academiaId));
+        valor.put("trimestral", this.repository.listarFaturamento(90, academiaId));
+        valor.put("semestral", this.repository.listarFaturamento(180, academiaId));
+        valor.put("anual", this.repository.listarFaturamento(365, academiaId));
 
         return valor;
     }
