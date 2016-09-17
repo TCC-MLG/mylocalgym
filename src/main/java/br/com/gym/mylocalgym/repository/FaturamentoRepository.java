@@ -9,9 +9,7 @@ import java.util.List;
  */
 public interface FaturamentoRepository {
 
-    public List<FaturamentoModel> listarTransacoes();
-
-    public List<FaturamentoModel> listarTransacoesPorPeriodo(String periodo);
+    public List<FaturamentoModel> listarTransacoesPorPeriodo(Integer academiaId, String periodo);
 
     public BigDecimal listarFaturamento(Integer dias, Integer academiaId);
 

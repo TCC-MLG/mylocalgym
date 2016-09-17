@@ -27,21 +27,12 @@ public class FaturamentoResource {
     private FaturamentoService service;
 
     @GET
-    @Path("/listar")
+    @Path("/listar/{academiaId}/periodo/{periodo}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listarTransacoes() {
+    public Response listarTransacoesPorPeriodo(@PathParam("academiaId") Integer academiaId,
+            @PathParam("periodo") String periodo) {
 
-        List<FaturamentoModel> list = this.service.listarTransacoes();
-        return (Response) (!list.isEmpty() ? ok(list).build() : status(NO_CONTENT).build());
-
-    }
-
-    @GET
-    @Path("/listar/{periodo}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response listarTransacoesPorPeriodo(@PathParam("periodo") String periodo) {
-
-        List<FaturamentoModel> list = this.service.listarTransacoesPorPeriodo(periodo);
+        List<FaturamentoModel> list = this.service.listarTransacoesPorPeriodo(academiaId, periodo);
         return (Response) (!list.isEmpty() ? ok(list).build() : status(NO_CONTENT).build());
 
     }

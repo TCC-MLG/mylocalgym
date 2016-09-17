@@ -10,10 +10,8 @@ import java.util.Map;
  */
 
 public interface FaturamentoService {
-    
-    public List<FaturamentoModel> listarTransacoes();
 
-    public List<FaturamentoModel> listarTransacoesPorPeriodo(String periodo);
+    public List<FaturamentoModel> listarTransacoesPorPeriodo(Integer academiaId, String periodo);
 
     public Map<String, BigDecimal> listarFaturamento(Integer academiaId);
     

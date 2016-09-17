@@ -1,7 +1,6 @@
 package br.com.gym.mylocalgym.repository.impl;
 
 import br.com.gym.mylocalgym.configuration.HibernateUtil;
-import br.com.gym.mylocalgym.entities.HistoricoTransacao;
 import br.com.gym.mylocalgym.model.FaturamentoModel;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.hibernate.Session;
 import br.com.gym.mylocalgym.repository.FaturamentoRepository;
+import br.com.gym.mylocalgym.transformers.FaturamentoTransformer;
 import java.math.BigDecimal;
 
 /**
@@ -22,36 +22,21 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
     private Session session = HibernateUtil.session();
 
     @Override
-    public List<FaturamentoModel> listarTransacoes() {
+    public List<FaturamentoModel> listarTransacoesPorPeriodo(Integer academiaId, String periodo) {
 
-        List<HistoricoTransacao> list = this.session.createQuery("SELECT h FROM HistoricoTransacao h").list();
-
-        List<FaturamentoModel> parameter = new ArrayList<FaturamentoModel>();
-
-        for (HistoricoTransacao historicoTransacao : list) {
-            parameter.add(historicoTransacao.convert());
-        }
-
-        return list != null ? parameter : null;
-
-    }
-
-    @Override
-    public List<FaturamentoModel> listarTransacoesPorPeriodo(String periodo) {
-
-        Date data = this.convertStringToDate(periodo);
-
-        List<HistoricoTransacao> list = this.session.createQuery("SELECT h FROM HistoricoTransacao h WHERE h.dataTransacao = :dataTransacao")
-                .setParameter("dataTransacao", data)
+        List<FaturamentoModel> list = this.session.createSQLQuery("SELECT c.nome, h.valor, h.data_transacao "
+                + "FROM mylocalgym.historico_transacao h "
+                + "JOIN mylocalgym.cliente c on h.id_cliente = c.id "
+                + "WHERE h.id_academia = :academiaId "
+                + "AND h.data_transacao  "
+                + "BETWEEN NOW() - INTERVAL :diaAcademia DAY "
+                + "AND NOW()")
+                .setResultTransformer(new FaturamentoTransformer())
+                .setParameter("academiaId", academiaId)
+                .setParameter("diaAcademia", periodo)
                 .list();
 
-        List<FaturamentoModel> parameter = new ArrayList<FaturamentoModel>();
-
-        for (HistoricoTransacao historicoTransacao : list) {
-            parameter.add(historicoTransacao.convert());
-        }
-
-        return list != null ? parameter : null;
+        return list != null ? list : null;
     }
 
     @Override
@@ -68,17 +53,6 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
 
         return faturamentoMensal;
 
-    }
-
-    private Date convertStringToDate(String periodo) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date data = null;
-        try {
-            data = new Date(format.parse(periodo).getTime());
-        } catch (ParseException ex) {
-            Logger.getLogger(FaturamentoRepositoryImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return data;
     }
 
 }

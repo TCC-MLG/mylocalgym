@@ -61,7 +61,7 @@ public class HistoricoTransacao implements Serializable {
 
         FaturamentoModel transacaoParameter = new FaturamentoModel();
 
-        transacaoParameter.setDataTransacao(DateUtil.convertDateToLocalDate(this.dataTransacao));
+        transacaoParameter.setHorario(DateUtil.convertDateToLocalDate(this.dataTransacao));
         transacaoParameter.setValor(this.valor);
 
         return transacaoParameter;

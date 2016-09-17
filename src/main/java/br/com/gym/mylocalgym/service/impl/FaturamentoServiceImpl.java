@@ -18,15 +18,8 @@ public class FaturamentoServiceImpl implements FaturamentoService {
     private FaturamentoRepository repository;
 
     @Override
-    public List<FaturamentoModel> listarTransacoes() {
-
-        return this.repository.listarTransacoes();
-
-    }
-
-    @Override
-    public List<FaturamentoModel> listarTransacoesPorPeriodo(String periodo) {
-        return this.repository.listarTransacoesPorPeriodo(periodo);
+    public List<FaturamentoModel> listarTransacoesPorPeriodo(Integer academiaId, String periodo) {
+        return this.repository.listarTransacoesPorPeriodo(academiaId, periodo);
     }
 
     @Override

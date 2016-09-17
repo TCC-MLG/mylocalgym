@@ -9,16 +9,18 @@ import java.time.format.DateTimeFormatter;
  */
 public class FaturamentoModel {
 
-    private LocalDate dataTransacao;
+    private String nome;
 
     private BigDecimal valor;
 
-    public String getDataTransacao() {
-        return dataTransacao.format(DateTimeFormatter.ISO_DATE);
+    private LocalDate horario;
+
+    public String getNome() {
+        return nome;
     }
 
-    public void setDataTransacao(LocalDate dataTransacao) {
-        this.dataTransacao = dataTransacao;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public BigDecimal getValor() {
@@ -27,6 +29,14 @@ public class FaturamentoModel {
 
     public void setValor(BigDecimal valor) {
         this.valor = valor;
+    }
+
+    public String getHorario() {
+        return horario.format(DateTimeFormatter.ISO_DATE);
+    }
+
+    public void setHorario(LocalDate horario) {
+        this.horario = horario;
     }
 
 }

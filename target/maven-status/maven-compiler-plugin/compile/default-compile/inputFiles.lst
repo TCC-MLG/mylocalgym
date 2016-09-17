@@ -13,6 +13,7 @@ C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\config
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\model\FaturamentoModel.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\Presenter.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\configuration\RESTApplication.java
+C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\transformers\FaturamentoTransformer.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\entities\HistoricoTransacao.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\impl\ClienteRepositoryImpl.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\impl\AcademiaServiceImpl.java
