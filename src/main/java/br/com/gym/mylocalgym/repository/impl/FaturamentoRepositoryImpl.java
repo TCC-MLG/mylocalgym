@@ -52,30 +52,33 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
         return faturamentoMensal;
 
     }
-    
+
     @Override
-    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId){
-        
-        LocalDate startDate = LocalDate.now().minusDays(30);
-        LocalDate endDate = LocalDate.now();
-        
+    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate) {
+
+        if (startDate == null && endDate == null) {
+
+            startDate = LocalDate.now().minusDays(30);
+            endDate = LocalDate.now();
+
+        }
+
         String hql = "FROM HistoricoTransacao h "
-                   + "where h.idAcademia.id = :academiaId "
-                   + "and h.dataTransacao "
-                   + "between :startDate "
-                   + "and :endDate ";
-        
-        
+                + "where h.idAcademia.id = :academiaId "
+                + "and h.dataTransacao "
+                + "between :startDate "
+                + "and :endDate ";
+
         Query query = this.session.createQuery(hql);
-        
+
         query.setParameter("academiaId", academiaId);
         query.setParameter("startDate", DateUtil.convertStringToDate(startDate.toString()));
         query.setParameter("endDate", DateUtil.convertStringToDate(endDate.toString()));
-        
+
         List<HistoricoTransacao> list = query.list();
-     
-        return list;        
-                
+
+        return list;
+
     }
 
 }

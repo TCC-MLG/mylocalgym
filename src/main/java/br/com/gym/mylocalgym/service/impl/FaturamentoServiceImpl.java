@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import br.com.gym.mylocalgym.repository.FaturamentoRepository;
 import br.com.gym.mylocalgym.service.FaturamentoService;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,9 +39,9 @@ public class FaturamentoServiceImpl implements FaturamentoService {
     }
     
     @Override
-    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId){
+    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate){
         
-        return this.repository.listarHistoricoClientes(academiaId);
+        return this.repository.listarHistoricoClientes(academiaId, startDate, endDate);
         
     }
 

@@ -3,6 +3,7 @@ package br.com.gym.mylocalgym.repository;
 import br.com.gym.mylocalgym.entities.HistoricoTransacao;
 import br.com.gym.mylocalgym.model.FaturamentoModel;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -14,6 +15,6 @@ public interface FaturamentoRepository {
 
     public BigDecimal listarFaturamento(Integer dias, Integer academiaId);
     
-    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId);
+    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate);
 
 }

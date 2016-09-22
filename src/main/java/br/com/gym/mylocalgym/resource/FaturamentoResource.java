@@ -13,10 +13,13 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import br.com.gym.mylocalgym.service.FaturamentoService;
+import br.com.gym.mylocalgym.utils.DateUtil;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import javax.ws.rs.QueryParam;
 import static javax.ws.rs.core.Response.ok;
 import static javax.ws.rs.core.Response.status;
 
@@ -56,14 +59,20 @@ public class FaturamentoResource {
     @GET
     @Path("/historico/{academiaId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listarHistoricoClientes(@PathParam("academiaId") Integer academiaId) {
+    public Response listarHistoricoClientes(
+            @PathParam("academiaId") Integer academiaId,
+            @QueryParam("start") String start,
+            @QueryParam("end") String end) {
 
-        List<HistoricoTransacao> list = this.service.listarHistoricoClientes(academiaId);
+        LocalDate startDate = start != null ? DateUtil.convertStringToLocalDate(start) : null;
+        LocalDate endDate = end != null ? DateUtil.convertStringToLocalDate(end) : null;
+
+        List<HistoricoTransacao> list = this.service.listarHistoricoClientes(academiaId, startDate, endDate);
 
         List<HistoricoClientePresenter> historicoPresenter = new ArrayList<>();
 
         if (list != null) {
-            
+
             for (HistoricoTransacao historicoTransacao : list) {
 
                 historicoPresenter.add(new HistoricoClientePresenter(historicoTransacao));
