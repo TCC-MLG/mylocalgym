@@ -39,9 +39,9 @@ public class FaturamentoServiceImpl implements FaturamentoService {
     }
     
     @Override
-    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate){
+    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate, String nome, String email){
         
-        return this.repository.listarHistoricoClientes(academiaId, startDate, endDate);
+        return this.repository.listarHistoricoClientes(academiaId, startDate, endDate, nome, email);
         
     }
 

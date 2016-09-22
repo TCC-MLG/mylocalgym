@@ -54,7 +54,7 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
     }
 
     @Override
-    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate) {
+    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate, String nome, String email) {
 
         if (startDate == null && endDate == null) {
 
@@ -63,17 +63,42 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
 
         }
 
-        String hql = "FROM HistoricoTransacao h "
-                + "where h.idAcademia.id = :academiaId "
-                + "and h.dataTransacao "
-                + "between :startDate "
-                + "and :endDate ";
+        StringBuilder hql = new StringBuilder();
+        hql.append("FROM HistoricoTransacao h ")
+                .append("where h.idAcademia.id = :academiaId ")
+                .append("and h.dataTransacao ")
+                .append("between :startDate ")
+                .append("and :endDate ");
 
-        Query query = this.session.createQuery(hql);
+        if (nome != null) {
+
+            hql.append("and h.idCliente.nome = :nome ");
+
+        }
+
+        if (nome != null) {
+
+            hql.append("and h.idCliente.email = :email ");
+
+        }
+
+        Query query = this.session.createQuery(hql.toString());
 
         query.setParameter("academiaId", academiaId);
         query.setParameter("startDate", DateUtil.convertStringToDate(startDate.toString()));
         query.setParameter("endDate", DateUtil.convertStringToDate(endDate.toString()));
+
+        if (nome != null) {
+
+            query.setParameter("nome", nome);
+
+        }
+
+        if (nome != null) {
+
+            query.setParameter("email", email);
+
+        }
 
         List<HistoricoTransacao> list = query.list();
 
