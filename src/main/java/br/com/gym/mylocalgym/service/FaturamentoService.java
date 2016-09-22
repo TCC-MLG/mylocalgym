@@ -1,5 +1,6 @@
 package br.com.gym.mylocalgym.service;
 
+import br.com.gym.mylocalgym.entities.HistoricoTransacao;
 import br.com.gym.mylocalgym.model.FaturamentoModel;
 import java.math.BigDecimal;
 import java.util.List;
@@ -14,5 +15,7 @@ public interface FaturamentoService {
     public List<FaturamentoModel> listarTransacoesPorPeriodo(Integer academiaId, String periodo);
 
     public Map<String, BigDecimal> listarFaturamento(Integer academiaId);
+    
+    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId);
     
 }

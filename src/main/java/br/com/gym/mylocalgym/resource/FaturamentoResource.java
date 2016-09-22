@@ -1,6 +1,8 @@
 package br.com.gym.mylocalgym.resource;
 
+import br.com.gym.mylocalgym.entities.HistoricoTransacao;
 import br.com.gym.mylocalgym.model.FaturamentoModel;
+import br.com.gym.mylocalgym.presenters.HistoricoClientePresenter;
 import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -12,6 +14,7 @@ import javax.ws.rs.core.Response;
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import br.com.gym.mylocalgym.service.FaturamentoService;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import static javax.ws.rs.core.Response.ok;
@@ -48,6 +51,28 @@ public class FaturamentoResource {
         valor = this.service.listarFaturamento(academiaId);
 
         return (Response) (valor != null ? ok(valor).build() : status(NO_CONTENT).build());
+    }
+
+    @GET
+    @Path("/historico/{academiaId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response listarHistoricoClientes(@PathParam("academiaId") Integer academiaId) {
+
+        List<HistoricoTransacao> list = this.service.listarHistoricoClientes(academiaId);
+
+        List<HistoricoClientePresenter> historicoPresenter = new ArrayList<>();
+
+        if (list != null) {
+            
+            for (HistoricoTransacao historicoTransacao : list) {
+
+                historicoPresenter.add(new HistoricoClientePresenter(historicoTransacao));
+
+            }
+
+        }
+
+        return (Response) (list != null ? ok(historicoPresenter).build() : status(NO_CONTENT).build());
     }
 
 }
