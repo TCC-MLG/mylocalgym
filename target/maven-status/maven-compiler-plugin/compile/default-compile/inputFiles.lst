@@ -7,11 +7,11 @@ C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\resour
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\impl\AcademiaRepositoryImpl.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\AcademiaRepository.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\resource\ClienteResource.java
-C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\HistoricoTransacaoPresenter.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\impl\LoginServiceImpl.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\configuration\HibernateUtil.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\model\FaturamentoModel.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\Presenter.java
+C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\HistoricoClientePresenter.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\configuration\RESTApplication.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\transformers\FaturamentoTransformer.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\entities\HistoricoTransacao.java

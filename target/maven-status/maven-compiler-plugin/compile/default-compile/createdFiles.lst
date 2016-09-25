@@ -8,10 +8,10 @@ br\com\gym\mylocalgym\entities\Academia.class
 br\com\gym\mylocalgym\presenters\Presenter.class
 br\com\gym\mylocalgym\service\AcademiaService.class
 br\com\gym\mylocalgym\entities\HistoricoCredito.class
+br\com\gym\mylocalgym\presenters\HistoricoClientePresenter.class
 br\com\gym\mylocalgym\service\impl\AcademiaServiceImpl.class
 br\com\gym\mylocalgym\repository\impl\AcademiaRepositoryImpl.class
 br\com\gym\mylocalgym\entities\HistoricoTransacao.class
-br\com\gym\mylocalgym\presenters\HistoricoTransacaoPresenter.class
 br\com\gym\mylocalgym\repository\impl\FaturamentoRepositoryImpl.class
 br\com\gym\mylocalgym\entities\Servico.class
 br\com\gym\mylocalgym\service\impl\LoginServiceImpl.class
