@@ -64,12 +64,13 @@ public class FaturamentoResource {
             @QueryParam("start") String start,
             @QueryParam("end") String end,
             @QueryParam("nome") String nome,
-            @QueryParam("email") String email) {
+            @QueryParam("email") String email,
+            @QueryParam("cpf") Integer cpf) {
 
         LocalDate startDate = start != null ? DateUtil.convertStringToLocalDate(start) : null;
         LocalDate endDate = end != null ? DateUtil.convertStringToLocalDate(end) : null;
 
-        List<HistoricoTransacao> list = this.service.listarHistoricoClientes(academiaId, startDate, endDate, nome, email);
+        List<HistoricoTransacao> list = this.service.listarHistoricoClientes(academiaId, startDate, endDate, nome, email, cpf);
 
         List<HistoricoClientePresenter> historicoPresenter = new ArrayList<>();
 

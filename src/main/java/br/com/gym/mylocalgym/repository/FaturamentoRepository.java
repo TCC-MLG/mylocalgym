@@ -15,6 +15,6 @@ public interface FaturamentoRepository {
 
     public BigDecimal listarFaturamento(Integer dias, Integer academiaId);
     
-    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate, String nome, String email);
+    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate, String nome, String email, Integer cpf);
 
 }

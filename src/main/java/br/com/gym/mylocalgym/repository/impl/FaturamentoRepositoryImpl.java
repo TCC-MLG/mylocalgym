@@ -54,7 +54,7 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
     }
 
     @Override
-    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate, String nome, String email) {
+    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate, String nome, String email, Integer cpf) {
 
         if (startDate == null && endDate == null) {
 
@@ -82,6 +82,12 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
 
         }
 
+        if (cpf != null) {
+
+            hql.append("and h.idCliente.cpf = :cpf ");
+
+        }
+
         Query query = this.session.createQuery(hql.toString());
 
         query.setParameter("academiaId", academiaId);
@@ -97,6 +103,12 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
         if (nome != null) {
 
             query.setParameter("email", email);
+
+        }
+
+        if (cpf != null) {
+
+            query.setParameter("cpf", cpf);
 
         }
 
