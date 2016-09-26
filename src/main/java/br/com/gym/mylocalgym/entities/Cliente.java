@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.gym.mylocalgym.entities;
 
 import br.com.gym.mylocalgym.parameter.ClienteParameter;
@@ -10,17 +5,21 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,6 +28,10 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "cliente")
 public class Cliente implements Serializable {
+
+    @Column(name = "ultima_recarga")
+    @Temporal(TemporalType.DATE)
+    private Date ultimaRecarga;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -225,6 +228,14 @@ public class Cliente implements Serializable {
     @Override
     public String toString() {
         return "br.com.gym.mylocalgym.models.Cliente[ id=" + id + " ]";
+    }
+
+    public Date getUltimaRecarga() {
+        return ultimaRecarga;
+    }
+
+    public void setUltimaRecarga(Date ultimaRecarga) {
+        this.ultimaRecarga = ultimaRecarga;
     }
     
 }

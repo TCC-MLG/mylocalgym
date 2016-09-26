@@ -12,6 +12,7 @@
     <mapping class="br.com.gym.mylocalgym.entities.HistoricoCredito" />
     <mapping class="br.com.gym.mylocalgym.entities.HistoricoTransacao" />
     <mapping class="br.com.gym.mylocalgym.entities.Servico" />
+    <mapping class="br.com.gym.mylocalgym.entities.Checkin" />
     
     
   </session-factory>

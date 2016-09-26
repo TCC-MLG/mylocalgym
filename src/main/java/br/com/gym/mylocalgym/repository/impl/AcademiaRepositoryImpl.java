@@ -18,9 +18,10 @@ public class AcademiaRepositoryImpl implements AcademiaRepository {
 
         try {
 
-            Integer id = (Integer) this.session.save(academia);
+            this.session.persist(academia);
+            this.session.getTransaction().commit();
 
-            return id != null;
+            return academia != null;
 
         } catch (Exception e) {
 
