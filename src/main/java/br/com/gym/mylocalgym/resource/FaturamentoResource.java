@@ -75,13 +75,9 @@ public class FaturamentoResource {
         List<HistoricoClientePresenter> historicoPresenter = new ArrayList<>();
 
         if (list != null) {
-
             for (HistoricoTransacao historicoTransacao : list) {
-
                 historicoPresenter.add(new HistoricoClientePresenter(historicoTransacao));
-
             }
-
         }
 
         return (Response) (list != null ? ok(historicoPresenter).build() : status(NO_CONTENT).build());

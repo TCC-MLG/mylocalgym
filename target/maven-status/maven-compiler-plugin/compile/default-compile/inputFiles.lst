@@ -12,6 +12,7 @@ C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\servic
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\configuration\HibernateUtil.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\model\FaturamentoModel.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\Presenter.java
+C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\CheckinClientePresenter.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\HistoricoClientePresenter.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\configuration\RESTApplication.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\transformers\FaturamentoTransformer.java

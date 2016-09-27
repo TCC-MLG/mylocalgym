@@ -29,6 +29,7 @@ br\com\gym\mylocalgym\model\FaturamentoModel.class
 br\com\gym\mylocalgym\repository\impl\LoginRepositoryImpl.class
 br\com\gym\mylocalgym\presenters\CheckinSolicitacaoPresenter.class
 br\com\gym\mylocalgym\resource\ClienteResource.class
+br\com\gym\mylocalgym\presenters\CheckinClientePresenter.class
 br\com\gym\mylocalgym\service\LoginService.class
 br\com\gym\mylocalgym\main\Teste.class
 br\com\gym\mylocalgym\transformers\FaturamentoTransformer.class
