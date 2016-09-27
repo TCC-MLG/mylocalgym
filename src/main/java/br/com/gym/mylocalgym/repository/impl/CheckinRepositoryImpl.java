@@ -17,7 +17,7 @@ public class CheckinRepositoryImpl implements CheckinRepository {
         
         StringBuilder sql = new StringBuilder();
         
-        sql.append("FROM Checkin c WHERE c.inAtivoInativo = true and c.idAcademia.id = :academiaId ");
+        sql.append("FROM Checkin c WHERE c.inAtivoInativo = true and c.idAcademia.id = :academiaId and c.solicitacaoCliente = false ");
         
         List<Checkin> requests = this.session.createQuery(sql.toString())
                 .setParameter("academiaId", academiaId).list();

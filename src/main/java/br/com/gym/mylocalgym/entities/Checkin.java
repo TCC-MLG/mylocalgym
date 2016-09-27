@@ -23,7 +23,6 @@ import javax.validation.constraints.NotNull;
     @NamedQuery(name = "Checkin.findAll", query = "SELECT c FROM Checkin c"),
     @NamedQuery(name = "Checkin.findByIdCheckin", query = "SELECT c FROM Checkin c WHERE c.id = :id"),
     @NamedQuery(name = "Checkin.findBySolicitacaoCliente", query = "SELECT c FROM Checkin c WHERE c.solicitacaoCliente = :solicitacaoCliente"),
-    @NamedQuery(name = "Checkin.findByAprovacaoAcademia", query = "SELECT c FROM Checkin c WHERE c.aprovacaoAcademia = :aprovacaoAcademia"),
     @NamedQuery(name = "Checkin.findByInAtivoInativo", query = "SELECT c FROM Checkin c WHERE c.inAtivoInativo = :inAtivoInativo")})
 public class Checkin implements Serializable {
 
@@ -37,10 +36,6 @@ public class Checkin implements Serializable {
     @NotNull
     @Column(name = "solicitacao_cliente")
     private boolean solicitacaoCliente;
-
-    @NotNull
-    @Column(name = "aprovacao_academia")
-    private boolean aprovacaoAcademia;
 
     @NotNull
     @Column(name = "in_ativo_inativo")
@@ -64,7 +59,6 @@ public class Checkin implements Serializable {
     public Checkin(Integer idCheckin, boolean solicitacaoCliente, boolean aprovacaoAcademia, boolean inAtivoInativo) {
         this.id = idCheckin;
         this.solicitacaoCliente = solicitacaoCliente;
-        this.aprovacaoAcademia = aprovacaoAcademia;
         this.inAtivoInativo = inAtivoInativo;
     }
 
@@ -82,14 +76,6 @@ public class Checkin implements Serializable {
 
     public void setSolicitacaoCliente(boolean solicitacaoCliente) {
         this.solicitacaoCliente = solicitacaoCliente;
-    }
-
-    public boolean getAprovacaoAcademia() {
-        return aprovacaoAcademia;
-    }
-
-    public void setAprovacaoAcademia(boolean aprovacaoAcademia) {
-        this.aprovacaoAcademia = aprovacaoAcademia;
     }
 
     public boolean getInAtivoInativo() {
