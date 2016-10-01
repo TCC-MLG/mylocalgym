@@ -11,7 +11,7 @@ public interface CheckinService {
 
     public List<Checkin> listarSolicitacao(Integer academiaId);
 
-    public List<Checkin> getDadosCliente(Integer academiaId, Integer checkinId);
+    Checkin getDadosCliente(Integer academiaId, Integer checkinId);
     
     public boolean liberarCliente(CheckinParameter parameter);
     

@@ -55,17 +55,9 @@ public class CheckinResource {
             @PathParam("checkinId") Integer checkinId,
             @PathParam("academiaId") Integer academiaId) {
 
-        List<Checkin> checkins = this.checkinService.getDadosCliente(academiaId, checkinId);
-
-        List<CheckinClientePresenter> presenters = new ArrayList<>();
-
-        if (checkins != null && !checkins.isEmpty()) {
-            for (Checkin checkin : checkins) {
-                presenters.add(new CheckinClientePresenter(checkin));
-            }
-        }
-
-        return (Response) (checkins != null ? ok(presenters).build() : status(NO_CONTENT).build());
+        Checkin checkin = this.checkinService.getDadosCliente(academiaId, checkinId);
+          
+        return (Response) (checkin != null ? ok(new CheckinClientePresenter(checkin)).build() : status(NO_CONTENT).build());
 
     }
 

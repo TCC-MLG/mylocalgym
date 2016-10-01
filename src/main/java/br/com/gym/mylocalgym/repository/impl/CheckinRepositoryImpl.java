@@ -28,7 +28,7 @@ public class CheckinRepositoryImpl implements CheckinRepository {
     }
 
     @Override
-    public List<Checkin> getDadosCliente(Integer academiaId, Integer checkinId) {
+    public Checkin getDadosCliente(Integer academiaId, Integer checkinId) {
 
         StringBuilder sql = new StringBuilder();
 
@@ -37,11 +37,11 @@ public class CheckinRepositoryImpl implements CheckinRepository {
                 + "and c.idAcademia.id = :academiaId "
                 + "and c.id = :id ");
 
-        List<Checkin> requests = this.session.createQuery(sql.toString())
+       Checkin request = (Checkin) this.session.createQuery(sql.toString())
                 .setParameter("academiaId", academiaId)
-                .setParameter("id", checkinId).list();
+                .setParameter("id", checkinId).uniqueResult();
 
-        return requests;
+        return request;
 
     }
 

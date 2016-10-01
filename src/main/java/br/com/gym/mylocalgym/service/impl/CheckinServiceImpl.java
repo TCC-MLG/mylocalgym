@@ -44,7 +44,7 @@ public class CheckinServiceImpl implements CheckinService {
     }
 
     @Override
-    public List<Checkin> getDadosCliente(Integer academiaId, Integer checkinId) {
+    public Checkin getDadosCliente(Integer academiaId, Integer checkinId) {
 
         return this.checkinRepository.getDadosCliente(academiaId, checkinId);
 
