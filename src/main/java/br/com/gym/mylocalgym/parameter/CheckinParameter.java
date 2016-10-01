@@ -9,6 +9,7 @@ public class CheckinParameter {
     
     private Integer checkinId;
     private Integer clienteId;
+    private Integer academiaId;
     private boolean liberado;
     private Integer servicoId;
     private BigDecimal valorServico;
@@ -51,6 +52,14 @@ public class CheckinParameter {
 
     public void setValorServico(BigDecimal valorServico) {
         this.valorServico = valorServico;
+    }
+
+    public Integer getAcademiaId() {
+        return academiaId;
+    }
+
+    public void setAcademiaId(Integer academiaId) {
+        this.academiaId = academiaId;
     }
     
     

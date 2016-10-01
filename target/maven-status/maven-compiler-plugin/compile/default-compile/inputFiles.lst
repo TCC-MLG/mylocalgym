@@ -4,6 +4,7 @@ C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\servic
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\configuration\HibernateUtil.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\CheckinClientePresenter.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\HistoricoClientePresenter.java
+C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\impl\CarteiraAcademiaRepositoryImpl.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\transformers\FaturamentoTransformer.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\entities\HistoricoTransacao.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\impl\ClienteRepositoryImpl.java
@@ -18,7 +19,9 @@ C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\servic
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\CheckinService.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\entities\CarteiraCliente.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\parameter\AcademiaParameter.java
+C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\CarteiraAcademiaRepository.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\parameter\CheckinParameter.java
+C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\impl\CarteiraAcademiaServiceImpl.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\LoginRepository.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\ServicoService.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\impl\LoginRepositoryImpl.java
@@ -56,4 +59,5 @@ C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\reposi
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\resource\CarteiraClienteResource.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\resource\CheckinResource.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\impl\CheckinServiceImpl.java
+C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\CarteiraAcademiaService.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\CarteiraClienteService.java

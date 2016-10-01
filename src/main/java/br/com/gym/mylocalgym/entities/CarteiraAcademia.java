@@ -5,8 +5,8 @@
  */
 package br.com.gym.mylocalgym.entities;
 
-import br.com.gym.mylocalgym.entities.Academia;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -45,7 +45,7 @@ public class CarteiraAcademia implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @Column(name = "saldo")
-    private long saldo;
+    private BigDecimal saldo;
     @Basic(optional = false)
     @Column(name = "dt_alteracao")
     @Temporal(TemporalType.TIMESTAMP)
@@ -61,7 +61,7 @@ public class CarteiraAcademia implements Serializable {
         this.id = id;
     }
 
-    public CarteiraAcademia(Integer id, long saldo, Date dtAlteracao) {
+    public CarteiraAcademia(Integer id, BigDecimal saldo, Date dtAlteracao) {
         this.id = id;
         this.saldo = saldo;
         this.dtAlteracao = dtAlteracao;
@@ -75,11 +75,11 @@ public class CarteiraAcademia implements Serializable {
         this.id = id;
     }
 
-    public long getSaldo() {
+    public BigDecimal getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(long saldo) {
+    public void setSaldo(BigDecimal saldo) {
         this.saldo = saldo;
     }
 

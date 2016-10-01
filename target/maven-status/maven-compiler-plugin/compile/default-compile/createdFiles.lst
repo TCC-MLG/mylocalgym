@@ -41,8 +41,11 @@ br\com\gym\mylocalgym\repository\impl\ClienteRepositoryImpl.class
 br\com\gym\mylocalgym\presenters\ServicoPresenter.class
 br\com\gym\mylocalgym\presenters\LoginAcademiaPresenter.class
 br\com\gym\mylocalgym\entities\Academia.class
+br\com\gym\mylocalgym\service\impl\CarteiraAcademiaServiceImpl.class
+br\com\gym\mylocalgym\service\CarteiraAcademiaService.class
 br\com\gym\mylocalgym\entities\CarteiraCliente.class
 br\com\gym\mylocalgym\repository\impl\FaturamentoRepositoryImpl.class
+br\com\gym\mylocalgym\repository\CarteiraAcademiaRepository.class
 br\com\gym\mylocalgym\service\impl\ServicoServiceImpl.class
 br\com\gym\mylocalgym\resource\CheckinResource.class
 br\com\gym\mylocalgym\entities\Servico.class
@@ -53,6 +56,7 @@ br\com\gym\mylocalgym\entities\Checkin.class
 br\com\gym\mylocalgym\repository\impl\LoginRepositoryImpl.class
 br\com\gym\mylocalgym\resource\ClienteResource.class
 br\com\gym\mylocalgym\service\LoginService.class
+br\com\gym\mylocalgym\repository\impl\CarteiraAcademiaRepositoryImpl.class
 br\com\gym\mylocalgym\resource\ServicoResource.class
 br\com\gym\mylocalgym\service\impl\ClienteServiceImpl.class
 br\com\gym\mylocalgym\repository\AcademiaRepository.class

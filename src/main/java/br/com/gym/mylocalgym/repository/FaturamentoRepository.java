@@ -14,7 +14,9 @@ public interface FaturamentoRepository {
     public List<FaturamentoModel> listarTransacoesPorPeriodo(Integer academiaId, String periodo);
 
     public BigDecimal listarFaturamento(Integer dias, Integer academiaId);
-    
+
     public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate, String nome, String email, Integer cpf);
+
+    public boolean cadastrarHistorico(Integer clienteId, Integer academiaId, BigDecimal valor);
 
 }
