@@ -51,7 +51,6 @@ public class CheckinServiceImpl implements CheckinService {
     }
 
     @Override
-    @Transactional
     public boolean liberarCliente(CheckinParameter parameter) {
 
         boolean pago = this.realizarPagamento(parameter);

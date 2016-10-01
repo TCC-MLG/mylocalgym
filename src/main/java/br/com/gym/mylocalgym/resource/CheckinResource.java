@@ -68,7 +68,7 @@ public class CheckinResource {
 
         boolean update = this.checkinService.liberarCliente(parameter);
         
-        return update ? ok(update).build() : status(NO_CONTENT).build();
+        return ok(update).build();
     }
 
 }
