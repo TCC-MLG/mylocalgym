@@ -68,9 +68,6 @@ public class Cliente implements Serializable {
     @Column(name = "validade_saldo")
     @Temporal(TemporalType.DATE)
     private Date validadeSaldo;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "saldo")
-    private BigDecimal saldo;
 
     public Cliente() {
     }
@@ -88,7 +85,6 @@ public class Cliente implements Serializable {
         this.cidade = clienteParameter.getCidade();
         this.endereco = clienteParameter.getApelido();
         this.validadeSaldo = clienteParameter.getValidadeSaldo();
-        this.saldo = clienteParameter.getSaldo();
 
     }
 
@@ -190,14 +186,6 @@ public class Cliente implements Serializable {
 
     public void setValidadeSaldo(Date validadeSaldo) {
         this.validadeSaldo = validadeSaldo;
-    }
-
-    public BigDecimal getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(BigDecimal saldo) {
-        this.saldo = saldo;
     }
 
     @Override

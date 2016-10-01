@@ -13,7 +13,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -78,8 +77,8 @@ public class Academia implements Serializable {
     @Column(name = "complemento")
     private String complemento;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAcademia")
-    private List<Servico> servicoList;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAcademia")
+//    private List<Servico> servicoList;
 
     public Academia() {
     }
@@ -181,13 +180,13 @@ public class Academia implements Serializable {
         this.endereco = endereco;
     }
 
-    public List<Servico> getServicoList() {
-        return servicoList;
-    }
-
-    public void setServicoList(List<Servico> servicoList) {
-        this.servicoList = servicoList;
-    }
+//    public List<Servico> getServicoList() {
+//        return servicoList;
+//    }
+//
+//    public void setServicoList(List<Servico> servicoList) {
+//        this.servicoList = servicoList;
+//    }
 
     @Override
     public int hashCode() {

@@ -1,6 +1,7 @@
 package br.com.gym.mylocalgym.resource;
 
 import br.com.gym.mylocalgym.entities.Checkin;
+import br.com.gym.mylocalgym.parameter.CheckinParameter;
 import br.com.gym.mylocalgym.presenters.CheckinClientePresenter;
 import br.com.gym.mylocalgym.presenters.CheckinSolicitacaoPresenter;
 import br.com.gym.mylocalgym.service.CheckinService;
@@ -9,7 +10,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.PUT;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -68,14 +69,12 @@ public class CheckinResource {
 
     }
 
-    @PUT
-    @Path("/liberar/{checkinId}/{aprovado}")
+    @POST
+    @Path("/liberar")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response liberarCliente(
-            @PathParam("checkinId") Integer checkinId,
-            @PathParam("aprovado") boolean aprovado) {
+    public Response liberarCliente(CheckinParameter parameter) {
 
-        boolean update = this.checkinService.liberarCliente(checkinId, aprovado);
+        boolean update = this.checkinService.liberarCliente(parameter);
         
         return update ? ok(update).build() : status(NO_CONTENT).build();
     }

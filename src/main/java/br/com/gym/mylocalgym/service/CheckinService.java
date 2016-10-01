@@ -1,6 +1,7 @@
 package br.com.gym.mylocalgym.service;
 
 import br.com.gym.mylocalgym.entities.Checkin;
+import br.com.gym.mylocalgym.parameter.CheckinParameter;
 import java.util.List;
 
 /**
@@ -12,6 +13,6 @@ public interface CheckinService {
 
     public List<Checkin> getDadosCliente(Integer academiaId, Integer checkinId);
     
-    public boolean liberarCliente(Integer checkinId, boolean liberado);
+    public boolean liberarCliente(CheckinParameter parameter);
     
 }
