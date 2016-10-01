@@ -9,6 +9,7 @@ import br.com.gym.mylocalgym.model.FaturamentoModel;
 import static br.com.gym.mylocalgym.utils.DateUtil.convertDateToLocalDate;
 import static br.com.gym.mylocalgym.utils.DateUtil.convertStringToDate;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
 import org.hibernate.transform.ResultTransformer;
 
@@ -22,14 +23,20 @@ public class FaturamentoTransformer implements ResultTransformer {
 
     @Override
     public Object transformTuple(Object[] rows, String[] strings) {
-        
-        FaturamentoModel faturamentoModel = new FaturamentoModel();
-        
-        faturamentoModel.setNome((String) rows[0]);
-        faturamentoModel.setValor(new BigDecimal(rows[1].toString()));
-        faturamentoModel.setHorario(convertDateToLocalDate(convertStringToDate(rows[2].toString())));
-        
-        return faturamentoModel;
+
+        if (rows != null) {
+
+            FaturamentoModel faturamentoModel = new FaturamentoModel();
+
+            faturamentoModel.setNome((String) rows[0]);
+            faturamentoModel.setValor(rows[1] != null ? new BigDecimal(rows[1].toString()) : new BigDecimal(BigInteger.ZERO));
+            faturamentoModel.setHorario(convertDateToLocalDate(convertStringToDate(rows[2].toString())));
+
+            return faturamentoModel;
+
+        }
+
+        return null;
     }
 
     @SuppressWarnings("rawtypes")

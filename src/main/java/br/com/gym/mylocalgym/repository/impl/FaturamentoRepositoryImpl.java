@@ -130,6 +130,7 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
         transacao.setDataTransacao(new Date());
         transacao.setIdAcademia(academia);
         transacao.setIdCliente(cliente);
+        transacao.setValor(valor);
 
         this.session.persist(transacao);
         
