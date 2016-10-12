@@ -31,6 +31,7 @@ public class ClienteResource {
         Boolean cadastrado = this.clienteService.cadastrarCliente(clienteEntity);
 
         return cadastrado ? ok().build() : status(Response.Status.BAD_REQUEST).build();
+        
     }
 
 }

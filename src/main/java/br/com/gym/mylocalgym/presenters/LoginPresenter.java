@@ -10,6 +10,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class LoginPresenter {
 
+    private Integer id;
+
     @XmlElement
     private boolean validado = true;
 
@@ -24,9 +26,18 @@ public class LoginPresenter {
 
     public LoginPresenter(Cliente cliente) {
 
+        this.id = cliente.getId();
         this.login = cliente.getApelido();
         this.email = cliente.getEmail();
         this.nome = cliente.getNome();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public boolean isValidado() {

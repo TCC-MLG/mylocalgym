@@ -1,8 +1,5 @@
 package br.com.gym.mylocalgym.parameter;
 
-import java.math.BigDecimal;
-import java.util.Date;
-
 /**
  * @author Matheus
  */
@@ -10,16 +7,13 @@ public class ClienteParameter {
 
     private String nome;
     private String email;
-    private String telefone;
     private String apelido;
-    private String senha;
-    private Integer cpf;
-    private String exameMedico;
+    private String telefone;
+    private Long cpf;
     private String estado;
     private String cidade;
     private String endereco;
-    private Date validadeSaldo;
-    private BigDecimal saldo;
+    private String senha;
 
     public String getNome() {
         return nome;
@@ -61,20 +55,12 @@ public class ClienteParameter {
         this.senha = senha;
     }
 
-    public Integer getCpf() {
+    public Long getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(Long cpf) {
         this.cpf = cpf;
-    }
-
-    public String getExameMedico() {
-        return exameMedico;
-    }
-
-    public void setExameMedico(String exameMedico) {
-        this.exameMedico = exameMedico;
     }
 
     public String getEstado() {
@@ -101,20 +87,4 @@ public class ClienteParameter {
         this.endereco = endereco;
     }
 
-    public Date getValidadeSaldo() {
-        return validadeSaldo;
-    }
-
-    public void setValidadeSaldo(Date validadeSaldo) {
-        this.validadeSaldo = validadeSaldo;
-    }
-
-    public BigDecimal getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(BigDecimal saldo) {
-        this.saldo = saldo;
-    }
-    
 }

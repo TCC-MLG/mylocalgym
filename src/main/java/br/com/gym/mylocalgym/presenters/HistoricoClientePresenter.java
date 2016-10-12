@@ -14,7 +14,7 @@ public class HistoricoClientePresenter implements Serializable {
 
     private Integer id;
     private String nome;
-    private Integer cpf;
+    private Long cpf;
     private String email;
     private String telefone;
     private boolean exameMedico;
@@ -51,11 +51,11 @@ public class HistoricoClientePresenter implements Serializable {
         this.nome = nome;
     }
 
-    public Integer getCpf() {
+    public Long getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(Long cpf) {
         this.cpf = cpf;
     }
 

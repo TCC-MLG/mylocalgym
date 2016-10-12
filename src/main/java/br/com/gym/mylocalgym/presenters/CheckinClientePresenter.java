@@ -12,7 +12,7 @@ public class CheckinClientePresenter {
     private Integer clienteId;
     private String nome;
     private String email;
-    private Integer cpf;
+    private Long cpf;
 
     public CheckinClientePresenter(Checkin checkin) {
 
@@ -65,11 +65,11 @@ public class CheckinClientePresenter {
         this.email = email;
     }
 
-    public Integer getCpf() {
+    public Long getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(Long cpf) {
         this.cpf = cpf;
     }
 

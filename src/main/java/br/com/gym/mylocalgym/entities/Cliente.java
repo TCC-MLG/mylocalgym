@@ -51,7 +51,7 @@ public class Cliente implements Serializable {
     @Column(name = "senha")
     private String senha;
     @Column(name = "cpf")
-    private Integer cpf;
+    private Long cpf;
     @Lob
     @Size(max = 2147483647)
     @Column(name = "exame_medico")
@@ -76,16 +76,14 @@ public class Cliente implements Serializable {
 
         this.nome = clienteParameter.getNome();
         this.email = clienteParameter.getEmail();
-        this.telefone = clienteParameter.getTelefone();
         this.apelido = clienteParameter.getApelido();
-        this.senha = clienteParameter.getSenha();
+        this.telefone = clienteParameter.getTelefone();
         this.cpf = clienteParameter.getCpf();
-        this.exameMedico = clienteParameter.getExameMedico();
         this.estado = clienteParameter.getEstado();
         this.cidade = clienteParameter.getCidade();
         this.endereco = clienteParameter.getApelido();
-        this.validadeSaldo = clienteParameter.getValidadeSaldo();
-
+        this.senha = clienteParameter.getSenha();
+        
     }
 
     public Cliente(Integer id) {
@@ -140,11 +138,11 @@ public class Cliente implements Serializable {
         this.senha = senha;
     }
 
-    public Integer getCpf() {
+    public Long getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(Long cpf) {
         this.cpf = cpf;
     }
 
