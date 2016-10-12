@@ -18,8 +18,8 @@ public class LoginRepositoryImpl implements LoginRepository {
 
         try {
 
-            Cliente cliente = (Cliente) this.session.createQuery("FROM Cliente c WHERE c.apelido = :apelido ")
-                    .setParameter("apelido", apelido)
+            Cliente cliente = (Cliente) this.session.createQuery("FROM Cliente c WHERE c.email = :email ")
+                    .setParameter("email", apelido)
                     .uniqueResult();
 
             if (cliente != null) {

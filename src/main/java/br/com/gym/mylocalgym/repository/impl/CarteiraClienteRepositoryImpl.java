@@ -3,9 +3,6 @@ package br.com.gym.mylocalgym.repository.impl;
 import br.com.gym.mylocalgym.configuration.HibernateUtil;
 import br.com.gym.mylocalgym.entities.CarteiraCliente;
 import br.com.gym.mylocalgym.repository.CarteiraClienteRepository;
-import java.math.BigDecimal;
-import java.util.Date;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 /**
@@ -33,9 +30,10 @@ public class CarteiraClienteRepositoryImpl implements CarteiraClienteRepository 
         return inseriu > 0;
     }
 
+    @Override
     public CarteiraCliente buscarSaldoPorId(Integer clienteId) {
         this.session = HibernateUtil.session();
-       
+
         StringBuilder sql = new StringBuilder();
 
         sql.append(" SELECT * ")

@@ -1,7 +1,6 @@
 package br.com.gym.mylocalgym.service;
 
 import br.com.gym.mylocalgym.entities.CarteiraCliente;
-import java.math.BigDecimal;
 
 /**
  * @author Luciano
@@ -9,7 +8,7 @@ import java.math.BigDecimal;
 public interface CarteiraClienteService {
 
     boolean inserirSaldo(CarteiraCliente carteiraCliente);
-    
+
     CarteiraCliente buscarSaldoPorId(Integer idCliente);
-    
+
 }

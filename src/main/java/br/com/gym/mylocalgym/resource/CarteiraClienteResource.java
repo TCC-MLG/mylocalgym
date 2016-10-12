@@ -1,8 +1,10 @@
 package br.com.gym.mylocalgym.resource;
 
+import br.com.gym.mylocalgym.entities.CarteiraCliente;
 import br.com.gym.mylocalgym.service.CarteiraClienteService;
 import java.math.BigDecimal;
 import javax.inject.Inject;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -26,9 +28,21 @@ public class CarteiraClienteResource {
             @PathParam("valor") BigDecimal valor) {
         boolean gravado = false;
 
-        //gravado = this.service.inserirSaldo(idCliente, valor);
+        CarteiraCliente cliente = new CarteiraCliente();
+        cliente.setId(idCliente);
+        cliente.setSaldo(valor);
+
+        gravado = this.service.inserirSaldo(cliente);
 
         return gravado ? ok().build() : status(BAD_REQUEST).build();
+
+    }
+
+    @GET
+    @Path("saldo/{idCliente}")
+    public Response buscarSaldoPorId(@PathParam("idCliente") Integer idCliente) {
+
+        return null;//gravado ? ok().build() : status(BAD_REQUEST).build();
 
     }
 
