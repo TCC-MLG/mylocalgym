@@ -1,6 +1,7 @@
 package br.com.gym.mylocalgym.service;
 
 import br.com.gym.mylocalgym.entities.HistoricoTransacao;
+import br.com.gym.mylocalgym.model.ClienteHistoricoTransacaoModel;
 import br.com.gym.mylocalgym.model.FaturamentoModel;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -20,4 +21,6 @@ public interface FaturamentoService {
 
     public boolean cadastrarHistorico(Integer clienteId, Integer academiaId, BigDecimal valor);
 
-    }
+    public List<ClienteHistoricoTransacaoModel> listarTransacoesCliente(String idCliente, String dias);
+
+}

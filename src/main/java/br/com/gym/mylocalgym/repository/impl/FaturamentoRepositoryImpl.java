@@ -4,6 +4,7 @@ import br.com.gym.mylocalgym.configuration.HibernateUtil;
 import br.com.gym.mylocalgym.entities.Academia;
 import br.com.gym.mylocalgym.entities.Cliente;
 import br.com.gym.mylocalgym.entities.HistoricoTransacao;
+import br.com.gym.mylocalgym.model.ClienteHistoricoTransacaoModel;
 import br.com.gym.mylocalgym.model.FaturamentoModel;
 import java.util.List;
 import org.hibernate.Session;
@@ -12,6 +13,7 @@ import br.com.gym.mylocalgym.transformers.FaturamentoTransformer;
 import br.com.gym.mylocalgym.utils.DateUtil;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import org.hibernate.Query;
 
@@ -133,12 +135,45 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
         transacao.setValor(valor);
 
         this.session.persist(transacao);
-        
+
         this.session.getTransaction().commit();
-        
+
         this.session.close();
 
         return transacao.getId() > 0;
+    }
+
+    public List<ClienteHistoricoTransacaoModel> listarTransacoesCliente(String idCliente, String dias) {
+
+        this.session = HibernateUtil.session();
+
+        LocalDate periodo = LocalDate.now().minusDays(Integer.valueOf(dias));
+        LocalDate agora = LocalDate.now();
+
+        StringBuilder hql = new StringBuilder();
+
+        hql.append(" FROM HistoricoTransacao h ")
+                .append(" WHERE h.idCliente.id = :idCliente ")
+                .append(" and h.dataTransacao ")
+                .append(" between :periodo ")
+                .append(" and :agora ");
+
+        List<HistoricoTransacao> list = this.session.createQuery(hql.toString())
+                .setParameter("idCliente", Integer.valueOf(idCliente))
+                .setParameter("periodo", DateUtil.convertStringToDate(periodo.toString()))
+                .setParameter("agora", DateUtil.convertStringToDate(agora.toString())).list();
+
+        this.session.close();
+
+        List<ClienteHistoricoTransacaoModel> models = new ArrayList<>();
+
+        for (HistoricoTransacao historicoTransacao : list) {
+
+            models.add(historicoTransacao.convertToHistoricoCliente());
+
+        }
+
+        return list != null ? models : null;
     }
 
 }

@@ -5,6 +5,7 @@
  */
 package br.com.gym.mylocalgym.entities;
 
+import br.com.gym.mylocalgym.model.ClienteHistoricoTransacaoModel;
 import br.com.gym.mylocalgym.model.FaturamentoModel;
 import br.com.gym.mylocalgym.utils.DateUtil;
 import java.io.Serializable;
@@ -66,6 +67,20 @@ public class HistoricoTransacao implements Serializable {
 
         return transacaoParameter;
 
+    }
+    
+    public ClienteHistoricoTransacaoModel convertToHistoricoCliente(){
+        
+        ClienteHistoricoTransacaoModel transacaoModel = new ClienteHistoricoTransacaoModel();
+        
+        transacaoModel.setIdTransacao(this.id);
+        transacaoModel.setIdAcademia(idAcademia.getId());
+        transacaoModel.setDataTransacao(DateUtil.convertDateToLocalDate(this.dataTransacao));
+        transacaoModel.setValor(this.valor);
+        transacaoModel.setRazaoSocial(this.idAcademia.getRazaoSocial());
+        
+        return transacaoModel;
+        
     }
 
     public HistoricoTransacao() {

@@ -20,10 +20,12 @@ C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presen
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\resource\AcademiaResource.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\transformers\FaturamentoTransformer.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\CarteiraAcademiaService.java
+C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\ClienteHistoricoTransacaoPresenter.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\utils\DateUtil.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\Presenter.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\entities\HistoricoTransacao.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\SaldoClientePresenter.java
+C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\model\ClienteHistoricoTransacaoModel.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\entities\HistoricoCredito.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\impl\CarteiraAcademiaRepositoryImpl.java
 C:\Users\Matheus\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\ServicoService.java

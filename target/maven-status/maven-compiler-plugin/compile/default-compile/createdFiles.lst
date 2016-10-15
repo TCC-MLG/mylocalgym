@@ -18,6 +18,7 @@ br\com\gym\mylocalgym\service\ServicoService.class
 br\com\gym\mylocalgym\service\impl\LoginServiceImpl.class
 br\com\gym\mylocalgym\service\ClienteService.class
 br\com\gym\mylocalgym\repository\ClienteRepository.class
+br\com\gym\mylocalgym\presenters\ClienteHistoricoTransacaoPresenter.class
 br\com\gym\mylocalgym\parameter\CheckinParameter.class
 br\com\gym\mylocalgym\resource\FaturamentoResource.class
 br\com\gym\mylocalgym\utils\DateUtil.class
@@ -53,6 +54,7 @@ br\com\gym\mylocalgym\entities\Servico.class
 br\com\gym\mylocalgym\repository\CheckinRepository.class
 br\com\gym\mylocalgym\service\impl\CheckinServiceImpl.class
 br\com\gym\mylocalgym\entities\Cliente.class
+br\com\gym\mylocalgym\model\ClienteHistoricoTransacaoModel.class
 br\com\gym\mylocalgym\entities\Checkin.class
 br\com\gym\mylocalgym\repository\impl\LoginRepositoryImpl.class
 br\com\gym\mylocalgym\resource\ClienteResource.class

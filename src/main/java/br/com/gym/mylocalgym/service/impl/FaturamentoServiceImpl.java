@@ -1,6 +1,7 @@
 package br.com.gym.mylocalgym.service.impl;
 
 import br.com.gym.mylocalgym.entities.HistoricoTransacao;
+import br.com.gym.mylocalgym.model.ClienteHistoricoTransacaoModel;
 import br.com.gym.mylocalgym.model.FaturamentoModel;
 import java.util.List;
 import javax.inject.Inject;
@@ -49,6 +50,10 @@ public class FaturamentoServiceImpl implements FaturamentoService {
 
         return this.repository.cadastrarHistorico(clienteId, academiaId, valor);
         
+    }
+    
+    public List<ClienteHistoricoTransacaoModel> listarTransacoesCliente(String idCliente, String dias){
+        return this.repository.listarTransacoesCliente(idCliente, dias);
     }
 
 }
