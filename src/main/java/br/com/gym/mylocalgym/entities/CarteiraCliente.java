@@ -5,8 +5,10 @@
  */
 package br.com.gym.mylocalgym.entities;
 
+import br.com.gym.mylocalgym.utils.DateUtil;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -21,7 +23,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -88,6 +89,10 @@ public class CarteiraCliente implements Serializable {
 
     public void setDtInclusao(Date dtInclusao) {
         this.dtInclusao = dtInclusao;
+    }
+    
+    public LocalDate validadeDate(){
+        return DateUtil.convertDateToLocalDate(this.dtInclusao);
     }
 
     public Cliente getClienteId() {

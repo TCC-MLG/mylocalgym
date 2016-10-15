@@ -6,7 +6,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mylocalgym</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">viaposto1</property>
+    <property name="hibernate.connection.password">amigos</property>
    
     <mapping class="br.com.gym.mylocalgym.entities.Cliente" />
     <mapping class="br.com.gym.mylocalgym.entities.Academia" />

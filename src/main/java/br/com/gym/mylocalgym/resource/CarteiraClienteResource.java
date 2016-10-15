@@ -1,6 +1,7 @@
 package br.com.gym.mylocalgym.resource;
 
 import br.com.gym.mylocalgym.entities.CarteiraCliente;
+import br.com.gym.mylocalgym.presenters.SaldoClientePresenter;
 import br.com.gym.mylocalgym.service.CarteiraClienteService;
 import java.math.BigDecimal;
 import javax.inject.Inject;
@@ -42,7 +43,9 @@ public class CarteiraClienteResource {
     @Path("saldo/{idCliente}")
     public Response buscarSaldoPorId(@PathParam("idCliente") Integer idCliente) {
 
-        return null;//gravado ? ok().build() : status(BAD_REQUEST).build();
+        CarteiraCliente cliente = this.service.buscarSaldoPorId(idCliente);
+        
+        return cliente != null ? ok(new SaldoClientePresenter(cliente)).build() : status(BAD_REQUEST).build();
 
     }
 
