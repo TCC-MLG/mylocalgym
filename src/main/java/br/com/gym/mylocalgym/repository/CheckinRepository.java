@@ -8,10 +8,12 @@ import java.util.List;
  */
 public interface CheckinRepository {
 
-    public List<Checkin> listarSolicitacao(Integer academiaId);
+    List<Checkin> listarSolicitacao(Integer academiaId);
     
-    public Checkin getDadosCliente(Integer academiaId, Integer checkinId);
+    Checkin getDadosCliente(Integer academiaId, Integer checkinId);
     
-    public boolean liberarCliente(Integer checkinId, boolean liberado);
+    boolean liberarCliente(Integer checkinId, boolean liberado);
+    
+    Integer solicitarCheckin(Integer clienteId, Integer academiaId);
 
 }

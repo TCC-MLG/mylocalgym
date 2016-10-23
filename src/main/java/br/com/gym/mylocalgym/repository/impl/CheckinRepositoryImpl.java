@@ -1,7 +1,9 @@
 package br.com.gym.mylocalgym.repository.impl;
 
 import br.com.gym.mylocalgym.configuration.HibernateUtil;
+import br.com.gym.mylocalgym.entities.Academia;
 import br.com.gym.mylocalgym.entities.Checkin;
+import br.com.gym.mylocalgym.entities.Cliente;
 import br.com.gym.mylocalgym.repository.CheckinRepository;
 import java.util.List;
 import org.hibernate.Session;
@@ -37,7 +39,7 @@ public class CheckinRepositoryImpl implements CheckinRepository {
                 + "and c.idAcademia.id = :academiaId "
                 + "and c.id = :id ");
 
-       Checkin request = (Checkin) this.session.createQuery(sql.toString())
+        Checkin request = (Checkin) this.session.createQuery(sql.toString())
                 .setParameter("academiaId", academiaId)
                 .setParameter("id", checkinId).uniqueResult();
 
@@ -62,6 +64,37 @@ public class CheckinRepositoryImpl implements CheckinRepository {
     private Checkin buscarCheckin(Integer checkinId) {
         return (Checkin) this.session.createQuery("SELECT c FROM Checkin c WHERE c.id = :id")
                 .setParameter("id", checkinId).uniqueResult();
+    }
+
+    @Override
+    public Integer solicitarCheckin(Integer clienteId, Integer academiaId) {
+
+        Checkin checkin = this.criarCheckin(clienteId, academiaId);
+        
+        Integer solicitado = (Integer) this.session.save(checkin);
+        
+        this.session.getTransaction().commit();
+        this.session.close();
+        
+        return solicitado;
+
+    }
+
+    private Checkin criarCheckin(Integer clienteId, Integer academiaId) {
+
+        Checkin checkin = new Checkin();
+        Academia academia = new Academia();
+        Cliente cliente = new Cliente();
+
+        cliente.setId(clienteId);
+        academia.setId(academiaId);
+
+        checkin.setIdCliente(cliente);
+        checkin.setIdAcademia(academia);
+        checkin.setSolicitacaoCliente(true);
+        
+        return checkin;
+        
     }
 
 }

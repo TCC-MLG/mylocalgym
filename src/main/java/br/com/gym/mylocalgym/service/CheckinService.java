@@ -9,10 +9,12 @@ import java.util.List;
  */
 public interface CheckinService {
 
-    public List<Checkin> listarSolicitacao(Integer academiaId);
+    List<Checkin> listarSolicitacao(Integer academiaId);
 
     Checkin getDadosCliente(Integer academiaId, Integer checkinId);
     
-    public boolean liberarCliente(CheckinParameter parameter);
+    boolean liberarCliente(CheckinParameter parameter);
+    
+    Integer solicitarCheckin(Integer clienteId, Integer academiaId);
     
 }
