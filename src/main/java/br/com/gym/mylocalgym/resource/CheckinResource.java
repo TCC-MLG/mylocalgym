@@ -17,8 +17,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
-import static javax.ws.rs.core.Response.Status.CREATED;
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
+import static javax.ws.rs.core.Response.Status.OK;
 import static javax.ws.rs.core.Response.ok;
 import static javax.ws.rs.core.Response.status;
 
@@ -76,11 +76,23 @@ public class CheckinResource {
     @POST
     @Path("/solicitar/{clienteId}/{academiaId}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response solicitarCheckin(@PathParam("clienteId")Integer clienteId, 
-                                     @PathParam("academiaId")Integer academiaId) {
+    public Response solicitarCheckin(@PathParam("clienteId") Integer clienteId,
+            @PathParam("academiaId") Integer academiaId) {
 
         Integer id = this.checkinService.solicitarCheckin(clienteId, academiaId);
 
         return id > 0 ? ok(id).build() : status(BAD_REQUEST).build();
+    }
+
+    @GET
+    @Path("/solicitar/status/{clienteId}/{checkinId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response verificarSolicitacao(@PathParam("clienteId") Integer clienteId,
+            @PathParam("checkinId") Integer checkinId) {
+
+        boolean validado = this.checkinService.verificarSolicitacao(clienteId, checkinId);
+
+        return ok(validado).build();
+
     }
 }

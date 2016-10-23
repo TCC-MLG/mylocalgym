@@ -17,4 +17,6 @@ public interface CheckinService {
     
     Integer solicitarCheckin(Integer clienteId, Integer academiaId);
     
+    boolean verificarSolicitacao(Integer clienteId, Integer checkinId);
+    
 }

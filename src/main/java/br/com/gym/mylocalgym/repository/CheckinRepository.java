@@ -15,5 +15,7 @@ public interface CheckinRepository {
     boolean liberarCliente(Integer checkinId, boolean liberado);
     
     Integer solicitarCheckin(Integer clienteId, Integer academiaId);
+    
+    boolean verificarSolicitacao(Integer clienteId, Integer checkinId);
 
 }

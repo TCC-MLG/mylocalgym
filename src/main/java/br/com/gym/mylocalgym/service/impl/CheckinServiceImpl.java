@@ -125,4 +125,9 @@ public class CheckinServiceImpl implements CheckinService {
 
     }
 
+    public boolean verificarSolicitacao(Integer clienteId, Integer checkinId) {
+
+        return this.checkinRepository.verificarSolicitacao(clienteId, checkinId);
+    }
+
 }

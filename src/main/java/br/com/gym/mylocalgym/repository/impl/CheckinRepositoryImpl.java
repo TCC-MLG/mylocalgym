@@ -66,16 +66,30 @@ public class CheckinRepositoryImpl implements CheckinRepository {
                 .setParameter("id", checkinId).uniqueResult();
     }
 
+    public boolean verificarSolicitacao(Integer clienteId, Integer checkinId) {
+
+        Checkin checkin = (Checkin) this.session.createQuery("FROM Checkin c "
+                                               + " WHERE c.id = :checkinId "
+                                               + " AND c.idCliente.id = :clienteId"
+                                               + " AND c.solicitacaoCliente = true"
+                                               + " AND c.inAtivoInativo = true")
+                .setParameter("checkinId", checkinId)
+                .setParameter("clienteId", clienteId)
+                .uniqueResult();
+
+        return checkin != null;
+    }
+
     @Override
     public Integer solicitarCheckin(Integer clienteId, Integer academiaId) {
 
         Checkin checkin = this.criarCheckin(clienteId, academiaId);
-        
+
         Integer solicitado = (Integer) this.session.save(checkin);
-        
+
         this.session.getTransaction().commit();
         this.session.close();
-        
+
         return solicitado;
 
     }
@@ -91,10 +105,11 @@ public class CheckinRepositoryImpl implements CheckinRepository {
 
         checkin.setIdCliente(cliente);
         checkin.setIdAcademia(academia);
-        checkin.setSolicitacaoCliente(true);
-        
+        checkin.setSolicitacaoCliente(false);
+        checkin.setInAtivoInativo(true);
+
         return checkin;
-        
+
     }
 
 }
