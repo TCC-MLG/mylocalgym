@@ -84,13 +84,18 @@ public class CheckinRepositoryImpl implements CheckinRepository {
     public Integer solicitarCheckin(Integer clienteId, Integer academiaId) {
 
         Checkin checkin = this.criarCheckin(clienteId, academiaId);
-
+    try{
         Integer solicitado = (Integer) this.session.save(checkin);
-
         this.session.getTransaction().commit();
         this.session.close();
-
+        
         return solicitado;
+        
+    }catch(Exception e){
+        
+    }
+    
+    return 0;
 
     }
 

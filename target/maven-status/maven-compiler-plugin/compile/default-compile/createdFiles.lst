@@ -22,6 +22,7 @@ br\com\gym\mylocalgym\presenters\ClienteHistoricoTransacaoPresenter.class
 br\com\gym\mylocalgym\parameter\CheckinParameter.class
 br\com\gym\mylocalgym\resource\FaturamentoResource.class
 br\com\gym\mylocalgym\utils\DateUtil.class
+br\com\gym\mylocalgym\parameter\SolicitarCheckinParameter.class
 br\com\gym\mylocalgym\model\FaturamentoModel.class
 br\com\gym\mylocalgym\repository\impl\CarteiraClienteRepositoryImpl.class
 br\com\gym\mylocalgym\presenters\CheckinSolicitacaoPresenter.class
