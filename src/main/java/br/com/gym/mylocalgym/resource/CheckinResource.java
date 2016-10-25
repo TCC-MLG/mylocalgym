@@ -74,7 +74,7 @@ public class CheckinResource {
     }
 
     @POST
-    @Path("/solicitar/{clienteId}/{academiaId}")
+    @Path("/solicitar")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response solicitarCheckin(SolicitarCheckinParameter parameter) {
 
