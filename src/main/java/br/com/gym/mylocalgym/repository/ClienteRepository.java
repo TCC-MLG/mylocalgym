@@ -8,6 +8,8 @@ import br.com.gym.mylocalgym.entities.Cliente;
  */
 public interface ClienteRepository {
 
-    public Boolean cadastrarCliente(Cliente cliente);
-    
-}
+    Boolean cadastrarCliente(Cliente cliente);
+
+    boolean alterarCliente(Integer clienteId, Cliente cliente);
+
+    }

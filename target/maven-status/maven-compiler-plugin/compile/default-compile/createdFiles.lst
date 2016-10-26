@@ -1,4 +1,5 @@
 br\com\gym\mylocalgym\parameter\AcademiaParameter.class
+br\com\gym\mylocalgym\parameter\AlterarClienteParameter.class
 br\com\gym\mylocalgym\repository\impl\ServicoRepositoryImpl.class
 br\com\gym\mylocalgym\configuration\HibernateUtil.class
 br\com\gym\mylocalgym\resource\AcademiaResource.class
