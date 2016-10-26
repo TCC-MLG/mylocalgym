@@ -30,4 +30,20 @@ public class AcademiaRepositoryImpl implements AcademiaRepository {
         }
     }
 
+    @Override
+    public Academia buscarAcademiaPorNome(String nomeAcademia) {
+
+        Academia academia = null;
+
+        try {
+            academia = (Academia) this.session.createQuery("FROM Academia a WHERE a.razaoSocial = :academia")
+                    .setParameter("academia", nomeAcademia)
+                    .uniqueResult();
+
+            return academia;
+        } catch (Exception e) {
+        }
+        return academia;
+    }
+
 }

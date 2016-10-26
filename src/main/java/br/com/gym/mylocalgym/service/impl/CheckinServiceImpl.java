@@ -53,13 +53,10 @@ public class CheckinServiceImpl implements CheckinService {
     public boolean liberarCliente(CheckinParameter parameter) {
 
         boolean pago = this.realizarPagamento(parameter);
-
         if (pago) {
-
             this.checkinRepository.liberarCliente(parameter.getCheckinId(), parameter.isLiberado());
-
         }
-
+        
         return pago;
 
     }

@@ -7,6 +7,8 @@ import br.com.gym.mylocalgym.entities.Academia;
  */
 public interface AcademiaService {
 
-    public boolean cadastrar(Academia academia);
+    boolean cadastrar(Academia academia);
+    
+    Academia buscarAcademiaPorNome(String nomeAcademia);
 
 }

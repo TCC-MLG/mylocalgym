@@ -2,6 +2,7 @@ C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\resour
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\entities\Servico.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\FaturamentoService.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\configuration\HibernateUtil.java
+C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\AcademiaPresenter.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\CheckinClientePresenter.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\HistoricoClientePresenter.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\impl\CarteiraAcademiaRepositoryImpl.java

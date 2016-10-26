@@ -63,5 +63,6 @@ br\com\gym\mylocalgym\service\LoginService.class
 br\com\gym\mylocalgym\repository\impl\CarteiraAcademiaRepositoryImpl.class
 br\com\gym\mylocalgym\resource\ServicoResource.class
 br\com\gym\mylocalgym\service\impl\ClienteServiceImpl.class
+br\com\gym\mylocalgym\presenters\AcademiaPresenter.class
 br\com\gym\mylocalgym\repository\AcademiaRepository.class
 br\com\gym\mylocalgym\parameter\ClienteParameter.class
