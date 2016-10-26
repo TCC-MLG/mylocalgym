@@ -39,7 +39,7 @@ public class ClienteRepositoryImpl implements ClienteRepository {
         try {
 
             cliente.setId(clienteId);
-            
+
             StringBuilder sql = new StringBuilder();
 
             sql.append(" UPDATE mylocalgym.cliente ")
@@ -71,6 +71,22 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 
         }
         return false;
+    }
+
+    @Override
+    public Cliente buscarClientePorId(Integer clienteId) {
+
+        this.session = HibernateUtil.session();
+
+        try {
+            Cliente cliente = (Cliente) this.session.createQuery("FROM Cliente c WHERE c.id = :id ")
+                    .setParameter("id", clienteId)
+                    .uniqueResult();
+
+            return cliente;
+        } catch (Exception e) {
+        }
+        return null;
     }
 
 }

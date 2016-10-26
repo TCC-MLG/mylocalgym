@@ -12,4 +12,6 @@ public interface ClienteService {
 
     boolean alterarCliente(Integer clienteId, AlterarClienteParameter cliente);
 
+    Cliente buscarClientePorId(Integer clienteId);
+
 }

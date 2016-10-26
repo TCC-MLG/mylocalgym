@@ -25,4 +25,9 @@ public class ClienteServiceImpl implements ClienteService {
 
         return this.clienteRepository.alterarCliente(clienteId, new Cliente(clienteParameter));
     }
+
+    public Cliente buscarClientePorId(Integer clienteId) {
+
+        return this.clienteRepository.buscarClientePorId(clienteId);
+    }
 }

@@ -12,4 +12,6 @@ public interface ClienteRepository {
 
     boolean alterarCliente(Integer clienteId, Cliente cliente);
 
-    }
+    Cliente buscarClientePorId(Integer clienteId);
+
+}
