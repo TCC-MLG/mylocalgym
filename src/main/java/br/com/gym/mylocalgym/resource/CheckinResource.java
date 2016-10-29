@@ -87,9 +87,9 @@ public class CheckinResource {
     @Path("/solicitar/status/{clienteId}/{checkinId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response verificarSolicitacao(@PathParam("clienteId") Integer clienteId,
-            @PathParam("academiaId") Integer academiaId) {
+            @PathParam("checkinId") Integer checkinId) {
 
-        boolean validado = this.checkinService.verificarSolicitacao(clienteId, academiaId);
+        boolean validado = this.checkinService.verificarSolicitacao(clienteId, checkinId);
 
         return ok(validado).build();
 
