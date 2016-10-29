@@ -72,7 +72,7 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
         this.session = HibernateUtil.session();
 
         if (startDate == null && endDate == null) {
-            startDate = LocalDate.now().minusDays(30);
+            startDate = LocalDate.now().minusDays(300);
             endDate = LocalDate.now();
         }
 
