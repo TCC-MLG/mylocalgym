@@ -18,6 +18,8 @@ public class ClienteRepositoryImpl implements ClienteRepository {
         try {
 
             Integer id = (Integer) this.session.save(cliente);
+            
+            this.session.getTransaction().commit();
 
             return id != null;
 

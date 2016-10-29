@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.gym.mylocalgym.entities;
 
+import br.com.gym.mylocalgym.parameter.AcademiaParameter;
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,8 +13,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 /**
  *
@@ -42,46 +35,50 @@ public class Academia implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")//if the field contains email address consider using this annotation to enforce field validation
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 40)
+
     @Column(name = "email")
     private String email;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 8)
+
     @Column(name = "senha")
     private String senha;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 13)
+
     @Column(name = "telefone")
     private String telefone;
-    @Basic(optional = false)
-    @NotNull
+
     @Column(name = "cnpj")
     private Integer cnpj;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 30)
+
+    @Column(name = "razao_social")
+    private String razaoSocial;
+
     @Column(name = "estado")
     private String estado;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
+
     @Column(name = "cidade")
     private String cidade;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 30)
+
     @Column(name = "endereco")
     private String endereco;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAcademia")
-    private List<Servico> servicoList;
+
+    @Column(name = "cep")
+    private String cep;
+
+    @Column(name = "bairro")
+    private String bairro;
+
+    @Column(name = "logradouro")
+    private String logradouro;
+
+    @Column(name = "numero")
+    private Integer numero;
+
+    @Column(name = "complemento")
+    private String complemento;
+
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAcademia")
+//    private List<Servico> servicoList;
 
     public Academia() {
     }
@@ -99,6 +96,24 @@ public class Academia implements Serializable {
         this.estado = estado;
         this.cidade = cidade;
         this.endereco = endereco;
+    }
+
+    public Academia(AcademiaParameter academia) {
+
+        this.email = academia.getEmail();
+        this.senha = academia.getSenha();
+        this.telefone = academia.getTelefone();
+        this.cnpj = academia.getCnpj();
+        this.estado = academia.getEstado();
+        this.cidade = academia.getCidade();
+        this.endereco = academia.getEndereco();
+        this.razaoSocial = academia.getRazaoSocial();
+        this.cep = academia.getCep();
+        this.bairro = academia.getBairro();
+        this.logradouro = academia.getLogradouro();
+        this.numero = academia.getNumero();
+        this.complemento = academia.getComplemento();
+
     }
 
     public Integer getId() {
@@ -165,13 +180,13 @@ public class Academia implements Serializable {
         this.endereco = endereco;
     }
 
-    public List<Servico> getServicoList() {
-        return servicoList;
-    }
-
-    public void setServicoList(List<Servico> servicoList) {
-        this.servicoList = servicoList;
-    }
+//    public List<Servico> getServicoList() {
+//        return servicoList;
+//    }
+//
+//    public void setServicoList(List<Servico> servicoList) {
+//        this.servicoList = servicoList;
+//    }
 
     @Override
     public int hashCode() {
@@ -182,7 +197,6 @@ public class Academia implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Academia)) {
             return false;
         }
@@ -197,5 +211,53 @@ public class Academia implements Serializable {
     public String toString() {
         return "br.com.gym.mylocalgym.models.Academia[ id=" + id + " ]";
     }
-    
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getRazaoSocial() {
+        return razaoSocial;
+    }
+
+    public void setRazaoSocial(String razaoSocial) {
+        this.razaoSocial = razaoSocial;
+    }
+
 }

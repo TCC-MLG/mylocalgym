@@ -5,10 +5,11 @@
  */
 package br.com.gym.mylocalgym.entities;
 
+import br.com.gym.mylocalgym.model.FaturamentoModel;
+import br.com.gym.mylocalgym.utils.DateUtil;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,18 +39,34 @@ public class HistoricoTransacao implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+
     @Column(name = "data_transacao")
     @Temporal(TemporalType.DATE)
     private Date dataTransacao;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+
     @Column(name = "valor")
     private BigDecimal valor;
+
     @JoinColumn(name = "id_cliente", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Cliente idCliente;
+
+    @JoinColumn(name = "id_academia", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Academia idAcademia;
+
+    public FaturamentoModel convert() {
+
+        FaturamentoModel transacaoParameter = new FaturamentoModel();
+
+        transacaoParameter.setHorario(DateUtil.convertDateToLocalDate(this.dataTransacao));
+        transacaoParameter.setValor(this.valor);
+
+        return transacaoParameter;
+
+    }
 
     public HistoricoTransacao() {
     }
@@ -114,5 +131,13 @@ public class HistoricoTransacao implements Serializable {
     public String toString() {
         return "br.com.gym.mylocalgym.models.HistoricoTransacao[ id=" + id + " ]";
     }
-    
+
+    public Academia getIdAcademia() {
+        return idAcademia;
+    }
+
+    public void setIdAcademia(Academia idAcademia) {
+        this.idAcademia = idAcademia;
+    }
+
 }

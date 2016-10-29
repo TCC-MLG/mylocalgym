@@ -36,27 +36,34 @@ import javax.validation.constraints.Size;
 public class Servico implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
     @Column(name = "nome")
     private String nome;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    
     @Column(name = "preco")
     private BigDecimal preco;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
     @Column(name = "tipo")
     private String tipo;
+    
     @JoinColumn(name = "id_academia", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Academia idAcademia;
+
+    @Column(name = "padrao")
+    private boolean padrao;
 
     public Servico() {
     }
@@ -135,5 +142,13 @@ public class Servico implements Serializable {
     public String toString() {
         return "br.com.gym.mylocalgym.models.Servico[ id=" + id + " ]";
     }
-    
+
+    public boolean isPadrao() {
+        return padrao;
+    }
+
+    public void setPadrao(boolean padrao) {
+        this.padrao = padrao;
+    }
+
 }

@@ -1,25 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.gym.mylocalgym.entities;
 
+import br.com.gym.mylocalgym.parameter.ClienteParameter;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,6 +23,10 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "cliente")
 public class Cliente implements Serializable {
+
+    @Column(name = "ultima_recarga")
+    @Temporal(TemporalType.DATE)
+    private Date ultimaRecarga;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -56,7 +51,7 @@ public class Cliente implements Serializable {
     @Column(name = "senha")
     private String senha;
     @Column(name = "cpf")
-    private Integer cpf;
+    private Long cpf;
     @Lob
     @Size(max = 2147483647)
     @Column(name = "exame_medico")
@@ -73,11 +68,22 @@ public class Cliente implements Serializable {
     @Column(name = "validade_saldo")
     @Temporal(TemporalType.DATE)
     private Date validadeSaldo;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "saldo")
-    private BigDecimal saldo;
-  
+
     public Cliente() {
+    }
+
+    public Cliente(ClienteParameter clienteParameter) {
+
+        this.nome = clienteParameter.getNome();
+        this.email = clienteParameter.getEmail();
+        this.apelido = clienteParameter.getApelido();
+        this.telefone = clienteParameter.getTelefone();
+        this.cpf = clienteParameter.getCpf();
+        this.estado = clienteParameter.getEstado();
+        this.cidade = clienteParameter.getCidade();
+        this.endereco = clienteParameter.getApelido();
+        this.senha = clienteParameter.getSenha();
+        
     }
 
     public Cliente(Integer id) {
@@ -132,11 +138,11 @@ public class Cliente implements Serializable {
         this.senha = senha;
     }
 
-    public Integer getCpf() {
+    public Long getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(Long cpf) {
         this.cpf = cpf;
     }
 
@@ -180,14 +186,6 @@ public class Cliente implements Serializable {
         this.validadeSaldo = validadeSaldo;
     }
 
-    public BigDecimal getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(BigDecimal saldo) {
-        this.saldo = saldo;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -212,5 +210,13 @@ public class Cliente implements Serializable {
     public String toString() {
         return "br.com.gym.mylocalgym.models.Cliente[ id=" + id + " ]";
     }
-    
+
+    public Date getUltimaRecarga() {
+        return ultimaRecarga;
+    }
+
+    public void setUltimaRecarga(Date ultimaRecarga) {
+        this.ultimaRecarga = ultimaRecarga;
+    }
+
 }

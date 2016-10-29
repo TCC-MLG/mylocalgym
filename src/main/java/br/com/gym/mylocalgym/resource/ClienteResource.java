@@ -1,5 +1,6 @@
 package br.com.gym.mylocalgym.resource;
 
+import br.com.gym.mylocalgym.parameter.ClienteParameter;
 import br.com.gym.mylocalgym.entities.Cliente;
 import br.com.gym.mylocalgym.service.ClienteService;
 import javax.inject.Inject;
@@ -23,11 +24,14 @@ public class ClienteResource {
     @POST
     @Path("/cadastrar")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response cadastrarCliente(Cliente cliente) {
+    public Response cadastrarCliente(ClienteParameter cliente) {
+        
+        Cliente clienteEntity = new Cliente(cliente);
 
-        Boolean cadastrado = this.clienteService.cadastrarCliente(cliente);
+        Boolean cadastrado = this.clienteService.cadastrarCliente(clienteEntity);
 
-        return cadastrado == true ? ok().build() : status(Response.Status.BAD_REQUEST).build();
+        return cadastrado ? ok().build() : status(Response.Status.BAD_REQUEST).build();
+        
     }
 
 }
