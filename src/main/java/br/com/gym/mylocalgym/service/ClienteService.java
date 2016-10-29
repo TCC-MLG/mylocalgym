@@ -5,7 +5,7 @@
  */
 package br.com.gym.mylocalgym.service;
 
-import entities.Cliente;
+import br.com.gym.mylocalgym.entities.Cliente;
 
 /**
  *
@@ -14,5 +14,5 @@ import entities.Cliente;
 public interface ClienteService {
 
     public Boolean cadastrarCliente(Cliente cliente);
-    
+
 }

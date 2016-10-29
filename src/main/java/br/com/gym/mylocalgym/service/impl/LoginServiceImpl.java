@@ -1,9 +1,9 @@
 package br.com.gym.mylocalgym.service.impl;
 
+import br.com.gym.mylocalgym.entities.Academia;
+import br.com.gym.mylocalgym.entities.Cliente;
 import br.com.gym.mylocalgym.repository.LoginRepository;
 import br.com.gym.mylocalgym.service.LoginService;
-import entities.Academia;
-import entities.Cliente;
 import javax.inject.Inject;
 
 /**
@@ -16,16 +16,16 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public Cliente autenticar(String nome, String senha) {
-        
+
         return this.loginRepository.autenticar(nome, senha);
-    
+
     }
 
     @Override
     public Academia autenticarAcademia(String cnpj, String senha) {
-        
+
         return this.loginRepository.autenticarAcademia(cnpj, senha);
-        
+
     }
 
 }

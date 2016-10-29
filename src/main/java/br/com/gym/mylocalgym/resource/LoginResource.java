@@ -1,10 +1,11 @@
 package br.com.gym.mylocalgym.resource;
 
+import br.com.gym.mylocalgym.entities.Academia;
+import br.com.gym.mylocalgym.entities.Cliente;
 import br.com.gym.mylocalgym.presenters.LoginAcademiaPresenter;
 import br.com.gym.mylocalgym.presenters.LoginPresenter;
 import br.com.gym.mylocalgym.service.LoginService;
-import entities.Academia;
-import entities.Cliente;
+
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

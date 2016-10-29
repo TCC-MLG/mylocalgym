@@ -1,8 +1,8 @@
 package br.com.gym.mylocalgym.service.impl;
 
+import br.com.gym.mylocalgym.entities.Academia;
 import br.com.gym.mylocalgym.repository.AcademiaRepository;
 import br.com.gym.mylocalgym.service.AcademiaService;
-import entities.Academia;
 import javax.inject.Inject;
 
 /**

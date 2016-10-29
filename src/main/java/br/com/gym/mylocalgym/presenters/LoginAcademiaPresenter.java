@@ -5,7 +5,7 @@
  */
 package br.com.gym.mylocalgym.presenters;
 
-import entities.Academia;
+import br.com.gym.mylocalgym.entities.Academia;
 
 /**
  *

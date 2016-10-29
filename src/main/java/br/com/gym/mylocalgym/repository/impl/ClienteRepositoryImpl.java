@@ -1,8 +1,8 @@
 package br.com.gym.mylocalgym.repository.impl;
 
 import br.com.gym.mylocalgym.configuration.HibernateUtil;
+import br.com.gym.mylocalgym.entities.Cliente;
 import br.com.gym.mylocalgym.repository.ClienteRepository;
-import entities.Cliente;
 import org.hibernate.Session;
 
 /**

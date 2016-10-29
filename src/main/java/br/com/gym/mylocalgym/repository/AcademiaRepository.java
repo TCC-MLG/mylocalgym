@@ -1,6 +1,8 @@
 package br.com.gym.mylocalgym.repository;
 
-import entities.Academia;
+import br.com.gym.mylocalgym.entities.Academia;
+
+
 
 /**
  *
