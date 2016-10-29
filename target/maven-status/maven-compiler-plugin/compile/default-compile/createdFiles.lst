@@ -1,4 +1,5 @@
 br\com\gym\mylocalgym\parameter\AcademiaParameter.class
+br\com\gym\mylocalgym\parameter\AlterarClienteParameter.class
 br\com\gym\mylocalgym\repository\impl\ServicoRepositoryImpl.class
 br\com\gym\mylocalgym\configuration\HibernateUtil.class
 br\com\gym\mylocalgym\resource\AcademiaResource.class
@@ -18,9 +19,11 @@ br\com\gym\mylocalgym\service\ServicoService.class
 br\com\gym\mylocalgym\service\impl\LoginServiceImpl.class
 br\com\gym\mylocalgym\service\ClienteService.class
 br\com\gym\mylocalgym\repository\ClienteRepository.class
+br\com\gym\mylocalgym\presenters\ClienteHistoricoTransacaoPresenter.class
 br\com\gym\mylocalgym\parameter\CheckinParameter.class
 br\com\gym\mylocalgym\resource\FaturamentoResource.class
 br\com\gym\mylocalgym\utils\DateUtil.class
+br\com\gym\mylocalgym\parameter\SolicitarCheckinParameter.class
 br\com\gym\mylocalgym\model\FaturamentoModel.class
 br\com\gym\mylocalgym\repository\impl\CarteiraClienteRepositoryImpl.class
 br\com\gym\mylocalgym\presenters\CheckinSolicitacaoPresenter.class
@@ -28,6 +31,7 @@ br\com\gym\mylocalgym\service\CarteiraClienteService.class
 br\com\gym\mylocalgym\presenters\CheckinClientePresenter.class
 br\com\gym\mylocalgym\main\Teste.class
 br\com\gym\mylocalgym\transformers\FaturamentoTransformer.class
+br\com\gym\mylocalgym\presenters\SaldoClientePresenter.class
 br\com\gym\mylocalgym\resource\LoginResource.class
 br\com\gym\mylocalgym\repository\FaturamentoRepository.class
 br\com\gym\mylocalgym\service\FaturamentoService.class
@@ -45,6 +49,7 @@ br\com\gym\mylocalgym\service\impl\CarteiraAcademiaServiceImpl.class
 br\com\gym\mylocalgym\service\CarteiraAcademiaService.class
 br\com\gym\mylocalgym\entities\CarteiraCliente.class
 br\com\gym\mylocalgym\repository\impl\FaturamentoRepositoryImpl.class
+br\com\gym\mylocalgym\presenters\DadosClientePresenter.class
 br\com\gym\mylocalgym\repository\CarteiraAcademiaRepository.class
 br\com\gym\mylocalgym\service\impl\ServicoServiceImpl.class
 br\com\gym\mylocalgym\resource\CheckinResource.class
@@ -52,6 +57,7 @@ br\com\gym\mylocalgym\entities\Servico.class
 br\com\gym\mylocalgym\repository\CheckinRepository.class
 br\com\gym\mylocalgym\service\impl\CheckinServiceImpl.class
 br\com\gym\mylocalgym\entities\Cliente.class
+br\com\gym\mylocalgym\model\ClienteHistoricoTransacaoModel.class
 br\com\gym\mylocalgym\entities\Checkin.class
 br\com\gym\mylocalgym\repository\impl\LoginRepositoryImpl.class
 br\com\gym\mylocalgym\resource\ClienteResource.class
@@ -59,5 +65,6 @@ br\com\gym\mylocalgym\service\LoginService.class
 br\com\gym\mylocalgym\repository\impl\CarteiraAcademiaRepositoryImpl.class
 br\com\gym\mylocalgym\resource\ServicoResource.class
 br\com\gym\mylocalgym\service\impl\ClienteServiceImpl.class
+br\com\gym\mylocalgym\presenters\AcademiaPresenter.class
 br\com\gym\mylocalgym\repository\AcademiaRepository.class
 br\com\gym\mylocalgym\parameter\ClienteParameter.class

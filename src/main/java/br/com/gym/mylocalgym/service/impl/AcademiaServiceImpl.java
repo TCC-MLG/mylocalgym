@@ -21,4 +21,10 @@ public class AcademiaServiceImpl implements AcademiaService {
 
     }
 
+    @Override
+    public Academia buscarAcademiaPorNome(String nomeAcademia) {
+
+        return this.academiaRepository.buscarAcademiaPorNome(nomeAcademia);
+    }
+
 }

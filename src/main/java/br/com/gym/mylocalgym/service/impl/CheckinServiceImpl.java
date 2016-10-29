@@ -14,7 +14,6 @@ import br.com.gym.mylocalgym.service.ServicoService;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 
 /**
  * @author Luciano
@@ -54,13 +53,10 @@ public class CheckinServiceImpl implements CheckinService {
     public boolean liberarCliente(CheckinParameter parameter) {
 
         boolean pago = this.realizarPagamento(parameter);
-
         if (pago) {
-
             this.checkinRepository.liberarCliente(parameter.getCheckinId(), parameter.isLiberado());
-        
         }
-
+        
         return pago;
 
     }
@@ -117,6 +113,18 @@ public class CheckinServiceImpl implements CheckinService {
         boolean feito = this.academiaService.inserirSaldo(parameter.getAcademiaId(), total);
 
         return feito;
+    }
+
+    @Override
+    public Integer solicitarCheckin(Integer clienteId, Integer academiaId) {
+
+        return this.checkinRepository.solicitarCheckin(clienteId, academiaId);
+
+    }
+
+    public boolean verificarSolicitacao(Integer clienteId, Integer checkinId) {
+
+        return this.checkinRepository.verificarSolicitacao(clienteId, checkinId);
     }
 
 }

@@ -10,6 +10,8 @@ import br.com.gym.mylocalgym.entities.Academia;
  */
 public interface AcademiaRepository {
 
-    public boolean cadastrar(Academia academia);
+    boolean cadastrar(Academia academia);
+    
+    Academia buscarAcademiaPorNome(String nomeAcademia);
 
 }

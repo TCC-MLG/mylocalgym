@@ -1,5 +1,6 @@
 package br.com.gym.mylocalgym.entities;
 
+import br.com.gym.mylocalgym.parameter.AlterarClienteParameter;
 import br.com.gym.mylocalgym.parameter.ClienteParameter;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -72,6 +73,18 @@ public class Cliente implements Serializable {
     public Cliente() {
     }
 
+    public Cliente(AlterarClienteParameter clienteParameter) {
+
+        this.nome = clienteParameter.getNome();
+        this.apelido = clienteParameter.getApelido();
+        this.telefone = clienteParameter.getTelefone();
+        this.estado = clienteParameter.getEstado();
+        this.cidade = clienteParameter.getCidade();
+        this.endereco = clienteParameter.getApelido();
+        this.senha = clienteParameter.getSenha();
+
+    }
+
     public Cliente(ClienteParameter clienteParameter) {
 
         this.nome = clienteParameter.getNome();
@@ -83,7 +96,7 @@ public class Cliente implements Serializable {
         this.cidade = clienteParameter.getCidade();
         this.endereco = clienteParameter.getApelido();
         this.senha = clienteParameter.getSenha();
-        
+
     }
 
     public Cliente(Integer id) {
