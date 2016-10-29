@@ -53,7 +53,7 @@ public class CheckinRepositoryImpl implements CheckinRepository {
         Checkin checkin = this.buscarCheckin(checkinId);
 
         checkin.setSolicitacaoCliente(liberado);
-        checkin.setInAtivoInativo(false);
+        checkin.setInAtivoInativo(true);
 
         this.session.update(checkin);
         this.session.getTransaction().commit();
