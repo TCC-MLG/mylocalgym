@@ -12,6 +12,8 @@ public class AlterarClienteParameter {
     private String cidade;
     private String endereco;
     private String senha;
+    private byte[] exame;
+    private byte[] foto;
     private Integer id;
 
     public String getNome() {
@@ -76,6 +78,22 @@ public class AlterarClienteParameter {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public byte[] getExame() {
+        return exame;
+    }
+
+    public void setExame(byte[] exame) {
+        this.exame = exame;
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
     }
 
 }

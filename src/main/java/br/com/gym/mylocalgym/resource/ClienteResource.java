@@ -39,14 +39,14 @@ public class ClienteResource {
 
     }
 
-    @PUT
+    @POST
     @Path("{clienteId}/alterar")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response alterarCliente(@PathParam("clienteId") Integer clienteId, AlterarClienteParameter clienteParameter) {
 
         boolean alterado = this.clienteService.alterarCliente(clienteId, clienteParameter);
 
-        return alterado ? ok().build() : status(Response.Status.BAD_REQUEST).build();
+        return ok(alterado).build();
     }
 
     @GET

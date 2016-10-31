@@ -38,7 +38,6 @@ public class Cliente implements Serializable {
     @Size(max = 30)
     @Column(name = "nome")
     private String nome;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 30)
     @Column(name = "email")
     private String email;
@@ -54,9 +53,11 @@ public class Cliente implements Serializable {
     @Column(name = "cpf")
     private Long cpf;
     @Lob
-    @Size(max = 2147483647)
     @Column(name = "exame_medico")
-    private String exameMedico;
+    private byte[] exameMedico;
+    @Lob
+    @Column(name = "foto")
+    private byte[] foto;
     @Size(max = 30)
     @Column(name = "estado")
     private String estado;
@@ -66,9 +67,6 @@ public class Cliente implements Serializable {
     @Size(max = 30)
     @Column(name = "endereco")
     private String endereco;
-    @Column(name = "validade_saldo")
-    @Temporal(TemporalType.DATE)
-    private Date validadeSaldo;
 
     public Cliente() {
     }
@@ -82,6 +80,8 @@ public class Cliente implements Serializable {
         this.cidade = clienteParameter.getCidade();
         this.endereco = clienteParameter.getApelido();
         this.senha = clienteParameter.getSenha();
+        this.foto = clienteParameter.getFoto();//this.byteArrayToString(clienteParameter.getFoto());
+        this.exameMedico = clienteParameter.getExame();//this.byteArrayToString(clienteParameter.getExame());
 
     }
 
@@ -159,14 +159,6 @@ public class Cliente implements Serializable {
         this.cpf = cpf;
     }
 
-    public String getExameMedico() {
-        return exameMedico;
-    }
-
-    public void setExameMedico(String exameMedico) {
-        this.exameMedico = exameMedico;
-    }
-
     public String getEstado() {
         return estado;
     }
@@ -189,14 +181,6 @@ public class Cliente implements Serializable {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
-    }
-
-    public Date getValidadeSaldo() {
-        return validadeSaldo;
-    }
-
-    public void setValidadeSaldo(Date validadeSaldo) {
-        this.validadeSaldo = validadeSaldo;
     }
 
     @Override
@@ -230,6 +214,38 @@ public class Cliente implements Serializable {
 
     public void setUltimaRecarga(Date ultimaRecarga) {
         this.ultimaRecarga = ultimaRecarga;
+    }
+
+    public byte[] getExameMedico() {
+        return exameMedico;
+    }
+
+    public void setExameMedico(byte[] exameMedico) {
+        this.exameMedico = exameMedico;
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
+    public byte[] stringToByteArray(String array) {
+        if (array != null) {
+            byte[] bytes = array.getBytes();
+            return bytes;
+        }
+        return null;
+    }
+
+    public String byteArrayToString(byte[] bs) {
+        if (bs != null) {
+            String s = new String(bs);
+            return s;
+        }
+        return null;
     }
 
 }

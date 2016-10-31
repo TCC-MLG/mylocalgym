@@ -3,6 +3,8 @@ package br.com.gym.mylocalgym.repository.impl;
 import br.com.gym.mylocalgym.configuration.HibernateUtil;
 import br.com.gym.mylocalgym.entities.Cliente;
 import br.com.gym.mylocalgym.repository.ClienteRepository;
+import static jdk.nashorn.internal.objects.NativeError.printStackTrace;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 /**
@@ -42,33 +44,59 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 
             StringBuilder sql = new StringBuilder();
 
-            sql.append(" UPDATE mylocalgym.cliente ")
-                    .append(" SET nome = :nome, ")
-                    .append(" apelido = :apelido, ")
-                    .append(" telefone = :telefone, ")
-                    .append(" estado = :estado, ")
-                    .append(" cidade = :cidade, ")
-                    .append(" endereco = :endereco, ")
-                    .append(" senha = :senha ")
-                    .append(" WHERE id = :id ");
+            sql.append(" UPDATE mylocalgym.cliente ");
+            sql.append(" SET nome = :nome ");
+            sql.append(" , apelido = :apelido ");
+            sql.append(" , telefone = :telefone ");
+            sql.append(" , estado = :estado ");
+            sql.append(" , cidade = :cidade ");
+            sql.append(" , endereco = :endereco ");
 
-            Integer updated = this.session.createSQLQuery(sql.toString())
-                    .setParameter("nome", cliente.getNome())
-                    .setParameter("apelido", cliente.getApelido())
-                    .setParameter("telefone", cliente.getTelefone())
-                    .setParameter("estado", cliente.getEstado())
-                    .setParameter("cidade", cliente.getCidade())
-                    .setParameter("endereco", cliente.getEndereco())
-                    .setParameter("senha", cliente.getSenha())
-                    .setParameter("id", cliente.getId())
-                    .executeUpdate();
+            if (cliente.getSenha() != null) {
+                sql.append(" , senha = :senha ");
+            }
+
+            if (cliente.getExameMedico() != null) {
+                sql.append(" , exameMedico = :exame ");
+            }
+
+            if (cliente.getFoto() != null) {
+                sql.append(" , foto = :foto ");
+            }
+
+            sql.append(" WHERE id = :id ");
+
+            Query hql = this.session.createSQLQuery(sql.toString());
+
+            hql.setParameter("nome", cliente.getNome());
+            hql.setParameter("apelido", cliente.getApelido());
+            hql.setParameter("telefone", cliente.getTelefone());
+            hql.setParameter("estado", cliente.getEstado());
+            hql.setParameter("cidade", cliente.getCidade());
+            hql.setParameter("endereco", cliente.getEndereco());
+
+            if (cliente.getSenha() != null) {
+                hql.setParameter("senha", cliente.getSenha());
+            }
+
+            if (cliente.getExameMedico() != null) {
+                hql.setBinary("exame", cliente.getExameMedico());
+            }
+
+            if (cliente.getFoto() != null) {
+                hql.setBinary("foto", cliente.getFoto());
+            }
+
+            hql.setParameter("id", cliente.getId());
+
+            Integer updated = hql.executeUpdate();
 
             this.session.getTransaction().commit();
             this.session.close();
 
             return updated > 0;
         } catch (Exception e) {
-
+            printStackTrace(e);
         }
         return false;
     }
@@ -83,10 +111,25 @@ public class ClienteRepositoryImpl implements ClienteRepository {
                     .setParameter("id", clienteId)
                     .uniqueResult();
 
+            this.session.getTransaction().commit();
+            this.session.close();
+
             return cliente;
         } catch (Exception e) {
         }
         return null;
+    }
+
+    public byte[] stringToByteArray(String array) {
+
+        byte[] bytes = array.getBytes();
+        return bytes;
+    }
+
+    public String byteArrayToString(byte[] bs) {
+
+        String s = new String(bs);
+        return s;
     }
 
 }
