@@ -57,7 +57,7 @@ public class ClienteRepositoryImpl implements ClienteRepository {
             }
 
             if (cliente.getExameMedico() != null) {
-                sql.append(" , exameMedico = :exame ");
+                sql.append(" , exame_medico = :exame ");
             }
 
             if (cliente.getFoto() != null) {
