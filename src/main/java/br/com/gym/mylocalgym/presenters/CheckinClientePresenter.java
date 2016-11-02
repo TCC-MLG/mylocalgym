@@ -13,6 +13,8 @@ public class CheckinClientePresenter {
     private String nome;
     private String email;
     private Long cpf;
+    private byte[] foto;
+    private byte[] exame;
 
     public CheckinClientePresenter(Checkin checkin) {
 
@@ -22,6 +24,8 @@ public class CheckinClientePresenter {
         this.nome = checkin.getIdCliente().getNome();
         this.email = checkin.getIdCliente().getEmail();
         this.cpf = checkin.getIdCliente().getCpf();
+        this.foto = checkin.getIdCliente().getFoto();
+        this.exame = checkin.getIdCliente().getExameMedico();
 
     }
 
@@ -71,6 +75,14 @@ public class CheckinClientePresenter {
 
     public void setCpf(Long cpf) {
         this.cpf = cpf;
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public byte[] getExame() {
+        return exame;
     }
 
 }
