@@ -40,6 +40,7 @@ br\com\gym\mylocalgym\service\impl\FaturamentoServiceImpl.class
 br\com\gym\mylocalgym\configuration\RESTApplication.class
 br\com\gym\mylocalgym\repository\ServicoRepository.class
 br\com\gym\mylocalgym\service\CheckinService.class
+br\com\gym\mylocalgym\presenters\InserirSaldoParameter.class
 br\com\gym\mylocalgym\repository\LoginRepository.class
 br\com\gym\mylocalgym\repository\impl\ClienteRepositoryImpl.class
 br\com\gym\mylocalgym\presenters\ServicoPresenter.class

@@ -2,6 +2,7 @@ package br.com.gym.mylocalgym.resource;
 
 import br.com.gym.mylocalgym.entities.CarteiraCliente;
 import br.com.gym.mylocalgym.entities.Cliente;
+import br.com.gym.mylocalgym.presenters.InserirSaldoParameter;
 import br.com.gym.mylocalgym.presenters.SaldoClientePresenter;
 import br.com.gym.mylocalgym.service.CarteiraClienteService;
 import java.math.BigDecimal;
@@ -25,16 +26,15 @@ public class CarteiraClienteResource {
     private CarteiraClienteService service;
 
     @POST
-    @Path("{idCliente}/inserir/{valor}")
-    public Response inserirSaldo(@PathParam("idCliente") Integer idCliente,
-            @PathParam("valor") BigDecimal valor) {
+    @Path("{idCliente}/inserir")
+    public Response inserirSaldo(@PathParam("idCliente") Integer idCliente, InserirSaldoParameter parameter) {
         boolean gravado = false;
 
         CarteiraCliente carteira = this.service.buscarSaldoPorId(idCliente);
         Cliente cliente = new Cliente();
         cliente.setId(idCliente);
         
-        BigDecimal novoSaldo = carteira.getSaldo().add(valor);
+        BigDecimal novoSaldo = carteira.getSaldo().add(parameter.getValor());
         
         carteira.setClienteId(cliente);
         carteira.setSaldo(novoSaldo);

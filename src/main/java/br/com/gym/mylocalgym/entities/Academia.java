@@ -77,8 +77,8 @@ public class Academia implements Serializable {
     @Column(name = "complemento")
     private String complemento;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAcademia")
-//    private List<Servico> servicoList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAcademia")
+    private List<Servico> servicoList;
 
     public Academia() {
     }
@@ -106,7 +106,7 @@ public class Academia implements Serializable {
         this.cnpj = academia.getCnpj();
         this.estado = academia.getEstado();
         this.cidade = academia.getCidade();
-        this.endereco = academia.getEndereco();
+        this.endereco = academia.getLogradouro();
         this.razaoSocial = academia.getRazaoSocial();
         this.cep = academia.getCep();
         this.bairro = academia.getBairro();
@@ -180,13 +180,13 @@ public class Academia implements Serializable {
         this.endereco = endereco;
     }
 
-//    public List<Servico> getServicoList() {
-//        return servicoList;
-//    }
-//
-//    public void setServicoList(List<Servico> servicoList) {
-//        this.servicoList = servicoList;
-//    }
+    public List<Servico> getServicoList() {
+        return servicoList;
+    }
+
+    public void setServicoList(List<Servico> servicoList) {
+        this.servicoList = servicoList;
+    }
 
     @Override
     public int hashCode() {

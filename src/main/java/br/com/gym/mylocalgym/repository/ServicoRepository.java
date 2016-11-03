@@ -12,4 +12,7 @@ public interface ServicoRepository {
 
     public Servico obterServico(Integer servicoId);
     
+    public boolean criarServicoPadrao(Integer academiaId);
+
+    
 }

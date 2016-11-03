@@ -25,4 +25,9 @@ public class ServicoServiceImpl implements ServicoService{
         
     }
     
+    public boolean criarServicoPadrao(Integer academiaId){
+        
+        return this.servicoRepository.criarServicoPadrao(academiaId);
+    }
+    
 }

@@ -105,9 +105,13 @@ public class CheckinServiceImpl implements CheckinService {
     private boolean pagarAcademia(Servico servico, CarteiraCliente carteira, CheckinParameter parameter) {
 
         CarteiraAcademia academia = this.academiaService.buscarSaldoPorId(parameter.getAcademiaId());
-
-        BigDecimal saldoAcademia = academia.getSaldo();
-
+        BigDecimal saldoAcademia;
+        
+        if (academia == null) {
+          saldoAcademia = new BigDecimal(0);
+        }else{
+            saldoAcademia = academia.getSaldo();
+        }       
         BigDecimal total = saldoAcademia.add(servico.getPreco());
 
         boolean feito = this.academiaService.inserirSaldo(parameter.getAcademiaId(), total);
