@@ -95,6 +95,8 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
         if (cpf != null) {
             hql.append("and h.idCliente.cpf = :cpf ");
         }
+        
+        hql.append(" order by h.dataTransacao desc ");
 
         Query query = this.session.createQuery(hql.toString());
 
@@ -157,7 +159,8 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
                 .append(" WHERE h.idCliente.id = :idCliente ")
                 .append(" and h.dataTransacao ")
                 .append(" between :periodo ")
-                .append(" and :agora ");
+                .append(" and :agora ")
+                .append(" order by h.dataTransacao desc ");
 
         List<HistoricoTransacao> list = this.session.createQuery(hql.toString())
                 .setParameter("idCliente", Integer.valueOf(idCliente))
@@ -182,7 +185,7 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
 
         this.session = HibernateUtil.session();
         try {
-            List<HistoricoTransacao> list = this.session.createQuery("FROM HistoricoTransacao h WHERE h.idCliente.id = :clienteId")
+            List<HistoricoTransacao> list = this.session.createQuery("FROM HistoricoTransacao h WHERE h.idCliente.id = :clienteId order by h.dataTransacao desc")
                     .setParameter("clienteId", clienteId)
                     .list();
 
