@@ -62,6 +62,7 @@ C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\main\T
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\LoginAcademiaPresenter.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\repository\impl\CheckinRepositoryImpl.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\resource\CarteiraClienteResource.java
+C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\model\HistoricoAcademiaModel.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\resource\CheckinResource.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\service\impl\CheckinServiceImpl.java
 C:\Users\Luciano\workspace\mylocalgym\src\main\java\br\com\gym\mylocalgym\presenters\ClienteHistoricoTransacaoPresenter.java

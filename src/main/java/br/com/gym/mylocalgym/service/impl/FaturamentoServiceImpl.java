@@ -3,6 +3,7 @@ package br.com.gym.mylocalgym.service.impl;
 import br.com.gym.mylocalgym.entities.HistoricoTransacao;
 import br.com.gym.mylocalgym.model.ClienteHistoricoTransacaoModel;
 import br.com.gym.mylocalgym.model.FaturamentoModel;
+import br.com.gym.mylocalgym.model.HistoricoAcademiaModel;
 import java.util.List;
 import javax.inject.Inject;
 import br.com.gym.mylocalgym.repository.FaturamentoRepository;
@@ -46,14 +47,21 @@ public class FaturamentoServiceImpl implements FaturamentoService {
 
     }
 
+    @Override
     public boolean cadastrarHistorico(Integer clienteId, Integer academiaId, BigDecimal valor) {
 
         return this.repository.cadastrarHistorico(clienteId, academiaId, valor);
-        
+
     }
-    
-    public List<ClienteHistoricoTransacaoModel> listarTransacoesCliente(String idCliente, String dias){
+
+    @Override
+    public List<ClienteHistoricoTransacaoModel> listarTransacoesCliente(String idCliente, String dias) {
         return this.repository.listarTransacoesCliente(idCliente, dias);
+    }
+
+    @Override
+    public List<HistoricoAcademiaModel> listarHistoricoAcademia(Integer clienteId) {
+        return this.repository.listarHistoricoAcademia(clienteId);
     }
 
 }

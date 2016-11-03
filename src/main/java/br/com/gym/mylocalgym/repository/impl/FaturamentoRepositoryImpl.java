@@ -6,6 +6,7 @@ import br.com.gym.mylocalgym.entities.Cliente;
 import br.com.gym.mylocalgym.entities.HistoricoTransacao;
 import br.com.gym.mylocalgym.model.ClienteHistoricoTransacaoModel;
 import br.com.gym.mylocalgym.model.FaturamentoModel;
+import br.com.gym.mylocalgym.model.HistoricoAcademiaModel;
 import java.util.List;
 import org.hibernate.Session;
 import br.com.gym.mylocalgym.repository.FaturamentoRepository;
@@ -174,6 +175,31 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
         }
 
         return list != null ? models : null;
+    }
+
+    @Override
+    public List<HistoricoAcademiaModel> listarHistoricoAcademia(Integer clienteId) {
+
+        this.session = HibernateUtil.session();
+        try {
+            List<HistoricoTransacao> list = this.session.createQuery("FROM HistoricoTransacao h WHERE h.idCliente.id = :clienteId")
+                    .setParameter("clienteId", clienteId)
+                    .list();
+
+            List<HistoricoAcademiaModel> academiaModels = new ArrayList<>();
+
+            if (list != null) {
+                for (HistoricoTransacao academiaModel : list) {
+                    academiaModels.add(academiaModel.convertToHistoricoAcademia());
+                }
+            }
+            this.session.close();
+            return academiaModels;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+
     }
 
 }

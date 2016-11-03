@@ -3,6 +3,7 @@ package br.com.gym.mylocalgym.resource;
 import br.com.gym.mylocalgym.entities.HistoricoTransacao;
 import br.com.gym.mylocalgym.model.ClienteHistoricoTransacaoModel;
 import br.com.gym.mylocalgym.model.FaturamentoModel;
+import br.com.gym.mylocalgym.model.HistoricoAcademiaModel;
 import br.com.gym.mylocalgym.presenters.ClienteHistoricoTransacaoPresenter;
 import br.com.gym.mylocalgym.presenters.HistoricoClientePresenter;
 import java.util.List;
@@ -101,6 +102,16 @@ public class FaturamentoResource {
         }
 
         return list != null ? ok(historicoPresenter).build() : status(NO_CONTENT).build();
+    }
+
+    @GET
+    @Path("/historico/cliente/{clienteId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response listarHistoricoAcademia(@PathParam("clienteId")Integer clienteId) {
+
+        List<HistoricoAcademiaModel> list = this.service.listarHistoricoAcademia(clienteId);
+        
+        return list != null ? ok(list).build() : status(NO_CONTENT).build();
     }
 
 }

@@ -3,6 +3,7 @@ package br.com.gym.mylocalgym.repository;
 import br.com.gym.mylocalgym.entities.HistoricoTransacao;
 import br.com.gym.mylocalgym.model.ClienteHistoricoTransacaoModel;
 import br.com.gym.mylocalgym.model.FaturamentoModel;
+import br.com.gym.mylocalgym.model.HistoricoAcademiaModel;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -21,5 +22,7 @@ public interface FaturamentoRepository {
     boolean cadastrarHistorico(Integer clienteId, Integer academiaId, BigDecimal valor);
     
     List<ClienteHistoricoTransacaoModel> listarTransacoesCliente(String idCliente, String dias);
+    
+    List<HistoricoAcademiaModel> listarHistoricoAcademia(Integer clienteId);
 
 }

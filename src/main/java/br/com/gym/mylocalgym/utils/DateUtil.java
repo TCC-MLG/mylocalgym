@@ -18,7 +18,7 @@ public class DateUtil {
 
     public static LocalDate convertDateToLocalDate(Date date) {
 
-        return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+        return date != null ? Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDate(): null;
 
     }
 

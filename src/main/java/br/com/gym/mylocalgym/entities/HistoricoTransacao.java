@@ -7,6 +7,7 @@ package br.com.gym.mylocalgym.entities;
 
 import br.com.gym.mylocalgym.model.ClienteHistoricoTransacaoModel;
 import br.com.gym.mylocalgym.model.FaturamentoModel;
+import br.com.gym.mylocalgym.model.HistoricoAcademiaModel;
 import br.com.gym.mylocalgym.utils.DateUtil;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -68,6 +69,18 @@ public class HistoricoTransacao implements Serializable {
         return transacaoParameter;
 
     }
+    
+    public HistoricoAcademiaModel convertToHistoricoAcademia(){
+        
+        HistoricoAcademiaModel model = new HistoricoAcademiaModel();
+        
+        model.setNomeAcademia(this.idAcademia.getRazaoSocial());
+        model.setEndereco(this.idAcademia.getEndereco());
+        model.setData(DateUtil.convertDateToLocalDate(this.dataTransacao));
+        
+        return model;
+        
+    } 
     
     public ClienteHistoricoTransacaoModel convertToHistoricoCliente(){
         
