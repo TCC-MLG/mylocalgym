@@ -17,6 +17,5 @@
     <mapping class="br.com.gym.mylocalgym.entities.CarteiraAcademia" />
     <mapping class="br.com.gym.mylocalgym.entities.CarteiraCliente" />
     
-    
   </session-factory>
 </hibernate-configuration>
