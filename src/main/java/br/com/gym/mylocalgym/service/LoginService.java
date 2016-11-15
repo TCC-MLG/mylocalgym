@@ -10,6 +10,6 @@ public interface LoginService {
 
     Cliente autenticar(String nome, String senha);
 
-    Academia autenticarAcademia(String cnpj, String senha);
+    Academia autenticarAcademia(Long cnpj, String senha);
 
 }

@@ -10,6 +10,6 @@ public interface LoginRepository {
    
     Cliente autenticar(String nome, String senha);
 
-    public Academia autenticarAcademia(String cnpj, String senha);
+    public Academia autenticarAcademia(Long cnpj, String senha);
     
 }

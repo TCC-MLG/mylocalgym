@@ -17,7 +17,7 @@ public interface FaturamentoRepository {
 
     BigDecimal listarFaturamento(Integer dias, Integer academiaId);
 
-    List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate, String nome, String email, Integer cpf);
+    List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate, String nome, String email, Long cpf);
 
     boolean cadastrarHistorico(Integer clienteId, Integer academiaId, BigDecimal valor);
     

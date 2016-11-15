@@ -39,7 +39,7 @@ public class LoginResource {
     @GET
     @Path("/academia/{cnpj}/{senha}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response autenticarAcademia(@PathParam("cnpj") String cnpj, @PathParam("senha") String senha) {
+    public Response autenticarAcademia(@PathParam("cnpj") Long cnpj, @PathParam("senha") String senha) {
 
         Academia academia = this.loginService.autenticarAcademia(cnpj, senha);
 

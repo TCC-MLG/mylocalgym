@@ -18,7 +18,7 @@ public interface FaturamentoService {
 
     public Map<String, BigDecimal> listarFaturamento(Integer academiaId);
 
-    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate, String nome, String email, Integer cpf);
+    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate, String nome, String email, Long cpf);
 
     public boolean cadastrarHistorico(Integer clienteId, Integer academiaId, BigDecimal valor);
 

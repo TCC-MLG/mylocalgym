@@ -68,7 +68,7 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
     }
 
     @Override
-    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate, String nome, String email, Integer cpf) {
+    public List<HistoricoTransacao> listarHistoricoClientes(Integer academiaId, LocalDate startDate, LocalDate endDate, String nome, String email, Long cpf) {
 
         this.session = HibernateUtil.session();
 
@@ -88,7 +88,7 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
             hql.append("and h.idCliente.nome = :nome ");
         }
 
-        if (nome != null) {
+        if (email != null) {
             hql.append("and h.idCliente.email = :email ");
         }
 
@@ -108,7 +108,7 @@ public class FaturamentoRepositoryImpl implements FaturamentoRepository {
             query.setParameter("nome", nome);
         }
 
-        if (nome != null) {
+        if (email != null) {
             query.setParameter("email", email);
         }
 

@@ -22,7 +22,7 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public Academia autenticarAcademia(String cnpj, String senha) {
+    public Academia autenticarAcademia(Long cnpj, String senha) {
 
         return this.loginRepository.autenticarAcademia(cnpj, senha);
 

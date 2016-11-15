@@ -37,14 +37,14 @@ public class LoginRepositoryImpl implements LoginRepository {
     }
 
     @Override
-    public Academia autenticarAcademia(String cnpj, String senha) {
+    public Academia autenticarAcademia(Long cnpj, String senha) {
 
         if (cnpj != null && senha != null) {
 
             try {
 
                 Academia academia = (Academia) this.session.createQuery("FROM Academia a where a.cnpj = :cnpj")
-                        .setParameter("cnpj", Integer.valueOf(cnpj))
+                        .setParameter("cnpj", cnpj)
                         .uniqueResult();
 
                 if (academia.getSenha().equals(senha)) {

@@ -48,7 +48,7 @@ public class Academia implements Serializable {
     private String telefone;
 
     @Column(name = "cnpj")
-    private Integer cnpj;
+    private Long cnpj;
 
     @Column(name = "razao_social")
     private String razaoSocial;
@@ -87,7 +87,7 @@ public class Academia implements Serializable {
         this.id = id;
     }
 
-    public Academia(Integer id, String email, String senha, String telefone, int cnpj, String estado, String cidade, String endereco) {
+    public Academia(Integer id, String email, String senha, String telefone, Long cnpj, String estado, String cidade, String endereco) {
         this.id = id;
         this.email = email;
         this.senha = senha;
@@ -148,11 +148,11 @@ public class Academia implements Serializable {
         this.telefone = telefone;
     }
 
-    public Integer getCnpj() {
+    public Long getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(Integer cnpj) {
+    public void setCnpj(Long cnpj) {
         this.cnpj = cnpj;
     }
 
