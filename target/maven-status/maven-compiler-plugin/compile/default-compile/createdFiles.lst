@@ -1,5 +1,6 @@
 br\com\gym\mylocalgym\parameter\AcademiaParameter.class
 br\com\gym\mylocalgym\parameter\AlterarClienteParameter.class
+br\com\gym\mylocalgym\presenters\ExamePresenter.class
 br\com\gym\mylocalgym\repository\impl\ServicoRepositoryImpl.class
 br\com\gym\mylocalgym\configuration\HibernateUtil.class
 br\com\gym\mylocalgym\resource\AcademiaResource.class
@@ -58,6 +59,7 @@ br\com\gym\mylocalgym\entities\Servico.class
 br\com\gym\mylocalgym\repository\CheckinRepository.class
 br\com\gym\mylocalgym\service\impl\CheckinServiceImpl.class
 br\com\gym\mylocalgym\entities\Cliente.class
+br\com\gym\mylocalgym\parameter\AlterarExameParameter.class
 br\com\gym\mylocalgym\model\ClienteHistoricoTransacaoModel.class
 br\com\gym\mylocalgym\entities\Checkin.class
 br\com\gym\mylocalgym\repository\impl\LoginRepositoryImpl.class

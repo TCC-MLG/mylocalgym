@@ -14,4 +14,8 @@ public interface ClienteService {
 
     Cliente buscarClientePorId(Integer clienteId);
 
+    public boolean alterarExame(Integer clienteId, Cliente cliente);
+
+    public byte[] buscarExame(Integer clienteId);
+
 }

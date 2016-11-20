@@ -30,4 +30,22 @@ public class ClienteServiceImpl implements ClienteService {
 
         return this.clienteRepository.buscarClientePorId(clienteId);
     }
+
+    @Override
+    public boolean alterarExame(Integer clienteId, Cliente cliente) {
+        
+        boolean atualizado = false;
+        
+        if (clienteId != null && cliente != null) {
+            
+            atualizado = this.clienteRepository.atualizarExame(clienteId, cliente);
+        }
+        
+        return atualizado;
+    }
+
+    @Override
+    public byte[] buscarExame(Integer clienteId) {
+        return this.clienteRepository.buscarExame(clienteId);
+    }
 }

@@ -120,6 +120,49 @@ public class ClienteRepositoryImpl implements ClienteRepository {
         return null;
     }
 
+    @Override
+    public boolean atualizarExame(Integer clienteId, Cliente cliente) {
+
+        Integer result = null;
+
+        if (clienteId != null && cliente != null) {
+            try {
+                this.session = HibernateUtil.session();
+
+                result = (Integer) this.session.save(cliente);
+
+                this.session.getTransaction().commit();
+                this.session.close();
+            } catch (Exception e) {
+
+            }
+        }
+
+        return result > 0;
+    }
+
+    @Override
+    public byte[] buscarExame(Integer clienteId) {
+
+        Cliente cliente = null;
+        if (clienteId != null) {
+            try {
+                this.session = HibernateUtil.session();
+
+                cliente = (Cliente) this.session.createQuery("FROM Cliente c where c.id = :clienteId")
+                        .setParameter("clienteId", clienteId)
+                        .uniqueResult();
+
+                this.session.getTransaction().commit();
+                this.session.close();
+            } catch (Exception e) {
+
+            }
+        }
+
+        return cliente != null ? cliente.getExameMedico() : null;
+    }
+
     public byte[] stringToByteArray(String array) {
 
         byte[] bytes = array.getBytes();

@@ -14,4 +14,8 @@ public interface ClienteRepository {
 
     Cliente buscarClientePorId(Integer clienteId);
 
+    public boolean atualizarExame(Integer clienteId, Cliente cliente);
+
+    public byte[] buscarExame(Integer clienteId);
+
 }
