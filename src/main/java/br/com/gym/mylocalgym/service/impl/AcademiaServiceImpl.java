@@ -38,4 +38,17 @@ public class AcademiaServiceImpl implements AcademiaService {
         return this.academiaRepository.buscarAcademiaPorNome(nomeAcademia);
     }
 
+    @Override
+    public Academia buscarDadosAcademia(Integer academiaId) {
+        
+        return this.academiaRepository.buscarDadosAcademia(academiaId);
+    }
+
+    @Override
+    public boolean alterarAcademia(Academia academiaEntity) {
+        
+        return this.academiaRepository.alterarAcademia(academiaEntity);
+    }
+
+
 }

@@ -40,8 +40,7 @@ public class ClienteResource {
 
         if (clienteId != null && parameter != null) {
 
-            Cliente cliente = new Cliente();
-            cliente.setId(clienteId);
+            Cliente cliente = this.clienteService.buscarClientePorId(clienteId);
             cliente.setExameMedico(parameter.getExame());
 
             atualizado = this.clienteService.alterarExame(clienteId, cliente);
@@ -52,7 +51,7 @@ public class ClienteResource {
     @GET
     @Path("{clienteId}/exame")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response buscarExame(@PathParam("clienteId")Integer clienteId) {
+    public Response buscarExame(@PathParam("clienteId") Integer clienteId) {
 
         byte[] exame = null;
         if (clienteId != null) {

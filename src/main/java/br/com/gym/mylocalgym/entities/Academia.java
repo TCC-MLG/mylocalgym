@@ -1,6 +1,7 @@
 package br.com.gym.mylocalgym.entities;
 
 import br.com.gym.mylocalgym.parameter.AcademiaParameter;
+import br.com.gym.mylocalgym.parameter.AlterarAcademiaParameter;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -112,6 +113,18 @@ public class Academia implements Serializable {
         this.bairro = academia.getBairro();
         this.logradouro = academia.getLogradouro();
         this.numero = academia.getNumero();
+        this.complemento = academia.getComplemento();
+
+    }
+
+    public Academia(AlterarAcademiaParameter academia) {
+
+        this.email = academia.getEmail();
+        this.telefone = academia.getTelefone();
+        this.estado = academia.getEstado();
+        this.cidade = academia.getCidade();
+        this.cep = academia.getCep();
+        this.bairro = academia.getBairro();
         this.complemento = academia.getComplemento();
 
     }

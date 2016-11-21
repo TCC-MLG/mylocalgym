@@ -129,7 +129,7 @@ public class ClienteRepositoryImpl implements ClienteRepository {
             try {
                 this.session = HibernateUtil.session();
 
-                result = (Integer) this.session.save(cliente);
+                this.session.update(cliente);
 
                 this.session.getTransaction().commit();
                 this.session.close();

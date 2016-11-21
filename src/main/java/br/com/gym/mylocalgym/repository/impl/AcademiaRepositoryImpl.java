@@ -11,15 +11,19 @@ import org.hibernate.Session;
  */
 public class AcademiaRepositoryImpl implements AcademiaRepository {
 
-    Session session = HibernateUtil.session();
+    Session session;
 
     @Override
     public boolean cadastrar(Academia academia) {
 
         try {
 
+            this.session = HibernateUtil.session();
+
             this.session.persist(academia);
+
             this.session.getTransaction().commit();
+            this.session.close();
 
             return academia != null;
 
@@ -36,14 +40,60 @@ public class AcademiaRepositoryImpl implements AcademiaRepository {
         Academia academia = null;
 
         try {
+            session = HibernateUtil.session();
+
             academia = (Academia) this.session.createQuery("FROM Academia a WHERE a.razaoSocial = :academia")
                     .setParameter("academia", nomeAcademia)
                     .uniqueResult();
+
+            this.session.getTransaction().commit();
+            this.session.close();
 
             return academia;
         } catch (Exception e) {
         }
         return academia;
+    }
+
+    @Override
+    public Academia buscarDadosAcademia(Integer academiaId) {
+
+        Academia academia = null;
+        try {
+            session = HibernateUtil.session();
+
+            academia = (Academia) this.session.createQuery("FROM Academia a WHERE a.id = :academiaId")
+                    .setParameter("academiaId", academiaId)
+                    .uniqueResult();
+
+            this.session.getTransaction().commit();
+            this.session.close();
+
+        } catch (Exception e) {
+        }
+        return academia;
+    }
+
+    @Override
+    public boolean alterarAcademia(Academia academiaEntity) {
+
+        int result = 0;
+        try {
+
+            session = HibernateUtil.session();
+
+            this.session.update(academiaEntity);
+
+            this.session.getTransaction().commit();
+            this.session.close();
+            
+            result = 1;
+
+        } catch (Exception e) {
+
+        }
+
+        return result > 0;
     }
 
 }

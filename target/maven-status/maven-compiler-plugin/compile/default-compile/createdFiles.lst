@@ -16,9 +16,11 @@ br\com\gym\mylocalgym\presenters\HistoricoClientePresenter.class
 br\com\gym\mylocalgym\service\impl\AcademiaServiceImpl.class
 br\com\gym\mylocalgym\repository\impl\AcademiaRepositoryImpl.class
 br\com\gym\mylocalgym\entities\HistoricoTransacao.class
+br\com\gym\mylocalgym\parameter\AlterarAcademiaParameter.class
 br\com\gym\mylocalgym\service\ServicoService.class
 br\com\gym\mylocalgym\service\impl\LoginServiceImpl.class
 br\com\gym\mylocalgym\service\ClienteService.class
+br\com\gym\mylocalgym\presenters\AlterarDadosAcademiaPresenter.class
 br\com\gym\mylocalgym\repository\ClienteRepository.class
 br\com\gym\mylocalgym\presenters\ClienteHistoricoTransacaoPresenter.class
 br\com\gym\mylocalgym\parameter\CheckinParameter.class

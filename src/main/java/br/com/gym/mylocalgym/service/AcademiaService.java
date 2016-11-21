@@ -11,4 +11,8 @@ public interface AcademiaService {
     
     Academia buscarAcademiaPorNome(String nomeAcademia);
 
+    public Academia buscarDadosAcademia(Integer academiaId);
+
+    public boolean alterarAcademia(Academia academiaEntity);
+
 }
