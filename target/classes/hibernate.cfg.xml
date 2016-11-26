@@ -12,7 +12,6 @@
     <mapping class="br.com.gym.mylocalgym.entities.Academia" />
     <mapping class="br.com.gym.mylocalgym.entities.HistoricoCredito" />
     <mapping class="br.com.gym.mylocalgym.entities.HistoricoTransacao" />
-    <mapping class="br.com.gym.mylocalgym.entities.Servico" />
     <mapping class="br.com.gym.mylocalgym.entities.Checkin" />
     <mapping class="br.com.gym.mylocalgym.entities.CarteiraAcademia" />
     <mapping class="br.com.gym.mylocalgym.entities.CarteiraCliente" />

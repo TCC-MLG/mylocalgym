@@ -3,6 +3,7 @@ package br.com.gym.mylocalgym.entities;
 import br.com.gym.mylocalgym.parameter.AcademiaParameter;
 import br.com.gym.mylocalgym.parameter.AlterarAcademiaParameter;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -78,8 +79,8 @@ public class Academia implements Serializable {
     @Column(name = "complemento")
     private String complemento;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAcademia")
-    private List<Servico> servicoList;
+    @Column(name = "valor_servico")
+    private BigDecimal valorServico;
 
     public Academia() {
     }
@@ -193,14 +194,6 @@ public class Academia implements Serializable {
         this.endereco = endereco;
     }
 
-    public List<Servico> getServicoList() {
-        return servicoList;
-    }
-
-    public void setServicoList(List<Servico> servicoList) {
-        this.servicoList = servicoList;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -271,6 +264,14 @@ public class Academia implements Serializable {
 
     public void setRazaoSocial(String razaoSocial) {
         this.razaoSocial = razaoSocial;
+    }
+
+    public BigDecimal getValorServico() {
+        return valorServico;
+    }
+
+    public void setValorServico(BigDecimal valorServico) {
+        this.valorServico = valorServico;
     }
 
 }

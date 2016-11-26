@@ -2,6 +2,7 @@ package br.com.gym.mylocalgym.presenters;
 
 import br.com.gym.mylocalgym.entities.Academia;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * @author Luciano
@@ -17,6 +18,7 @@ public class AlterarDadosAcademiaPresenter implements Serializable {
     private String bairro;
     private String cidade;
     private String estado;
+    private BigDecimal valorServico;
     
     public AlterarDadosAcademiaPresenter(Academia academia){
         
@@ -29,6 +31,7 @@ public class AlterarDadosAcademiaPresenter implements Serializable {
         this.bairro = academia.getBairro();
         this.cidade = academia.getCidade();
         this.estado = academia.getEstado();
+        this.valorServico = academia.getValorServico();
         
     }
 
@@ -66,6 +69,14 @@ public class AlterarDadosAcademiaPresenter implements Serializable {
 
     public String getEstado() {
         return estado;
+    }
+
+    public BigDecimal getValorServico() {
+        return valorServico;
+    }
+
+    public void setValorServico(BigDecimal valorServico) {
+        this.valorServico = valorServico;
     }
                     
     

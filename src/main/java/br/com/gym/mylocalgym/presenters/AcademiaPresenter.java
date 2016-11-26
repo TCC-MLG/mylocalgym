@@ -20,7 +20,7 @@ public class AcademiaPresenter {
         this.id = academia.getId();
         this.razaoSocial = academia.getRazaoSocial();
         this.endereco = academia.getEndereco();
-        this.valorServico = academia.getServicoList().get(0).getPreco();
+        this.valorServico = academia.getValorServico();
 
     }
 

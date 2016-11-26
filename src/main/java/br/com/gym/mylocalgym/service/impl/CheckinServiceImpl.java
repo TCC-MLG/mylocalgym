@@ -3,14 +3,12 @@ package br.com.gym.mylocalgym.service.impl;
 import br.com.gym.mylocalgym.entities.CarteiraAcademia;
 import br.com.gym.mylocalgym.entities.CarteiraCliente;
 import br.com.gym.mylocalgym.entities.Checkin;
-import br.com.gym.mylocalgym.entities.Servico;
 import br.com.gym.mylocalgym.parameter.CheckinParameter;
 import br.com.gym.mylocalgym.repository.CheckinRepository;
 import br.com.gym.mylocalgym.service.CarteiraAcademiaService;
 import br.com.gym.mylocalgym.service.CarteiraClienteService;
 import br.com.gym.mylocalgym.service.CheckinService;
 import br.com.gym.mylocalgym.service.FaturamentoService;
-import br.com.gym.mylocalgym.service.ServicoService;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.inject.Inject;
@@ -32,21 +30,16 @@ public class CheckinServiceImpl implements CheckinService {
     @Inject
     private FaturamentoService faturamentoService;
 
-    @Inject
-    private ServicoService servico;
-
     @Override
     public List<Checkin> listarSolicitacao(Integer academiaId) {
 
         return this.checkinRepository.listarSolicitacao(academiaId);
-
     }
 
     @Override
     public Checkin getDadosCliente(Integer academiaId, Integer checkinId) {
 
         return this.checkinRepository.getDadosCliente(academiaId, checkinId);
-
     }
 
     @Override
@@ -56,39 +49,37 @@ public class CheckinServiceImpl implements CheckinService {
         if (pago) {
             this.checkinRepository.liberarCliente(parameter.getCheckinId(), parameter.isLiberado());
         }
-        
-        return pago;
 
+        return pago;
     }
 
     private boolean realizarPagamento(CheckinParameter parameter) {
 
         CarteiraCliente carteira = this.serviceCliente.buscarSaldoPorId(parameter.getClienteId());
-        Servico servico = this.servico.obterServico(parameter.getServicoId());
 
         boolean clienteCobrado = false;
 
-        if (carteira != null && servico != null) {
+        if (carteira != null) {
 
-            clienteCobrado = this.cobrarCliente(servico, carteira, parameter);
+            clienteCobrado = this.cobrarCliente(carteira, parameter);
 
             if (clienteCobrado) {
-                clienteCobrado = this.pagarAcademia(servico, carteira, parameter);
+                clienteCobrado = this.pagarAcademia(parameter);
             }
 
             if (clienteCobrado) {
-                this.faturamentoService.cadastrarHistorico(parameter.getClienteId(), parameter.getAcademiaId(), servico.getPreco());
+                this.faturamentoService.cadastrarHistorico(parameter.getClienteId(), parameter.getAcademiaId(), parameter.getValorServico());
             }
         }
         return clienteCobrado;
     }
 
-    private boolean cobrarCliente(Servico servico, CarteiraCliente carteira, CheckinParameter parameter) {
+    private boolean cobrarCliente(CarteiraCliente carteira, CheckinParameter parameter) {
 
         boolean feito = false;
 
         BigDecimal saldoCliente = carteira.getSaldo();
-        BigDecimal valorPlano = servico.getPreco();
+        BigDecimal valorPlano = parameter.getValorServico();
 
         BigDecimal total = saldoCliente.subtract(valorPlano);
 
@@ -102,17 +93,17 @@ public class CheckinServiceImpl implements CheckinService {
         return feito;
     }
 
-    private boolean pagarAcademia(Servico servico, CarteiraCliente carteira, CheckinParameter parameter) {
+    private boolean pagarAcademia(CheckinParameter parameter) {
 
         CarteiraAcademia academia = this.academiaService.buscarSaldoPorId(parameter.getAcademiaId());
         BigDecimal saldoAcademia;
-        
+
         if (academia == null) {
-          saldoAcademia = new BigDecimal(0);
-        }else{
+            saldoAcademia = new BigDecimal(0);
+        } else {
             saldoAcademia = academia.getSaldo();
-        }       
-        BigDecimal total = saldoAcademia.add(servico.getPreco());
+        }
+        BigDecimal total = saldoAcademia.add(parameter.getValorServico());
 
         boolean feito = this.academiaService.inserirSaldo(parameter.getAcademiaId(), total);
 
@@ -121,13 +112,10 @@ public class CheckinServiceImpl implements CheckinService {
 
     @Override
     public Integer solicitarCheckin(Integer clienteId, Integer academiaId) {
-
         return this.checkinRepository.solicitarCheckin(clienteId, academiaId);
-
     }
 
     public boolean verificarSolicitacao(Integer clienteId, Integer checkinId) {
-
         return this.checkinRepository.verificarSolicitacao(clienteId, checkinId);
     }
 

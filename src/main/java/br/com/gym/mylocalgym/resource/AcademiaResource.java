@@ -6,19 +6,17 @@ import br.com.gym.mylocalgym.parameter.AlterarAcademiaParameter;
 import br.com.gym.mylocalgym.presenters.AcademiaPresenter;
 import br.com.gym.mylocalgym.presenters.AlterarDadosAcademiaPresenter;
 import br.com.gym.mylocalgym.service.AcademiaService;
+import java.math.BigDecimal;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
-import static javax.ws.rs.core.Response.ok;
-import static javax.ws.rs.core.Response.status;
 import static javax.ws.rs.core.Response.ok;
 import static javax.ws.rs.core.Response.status;
 
@@ -37,6 +35,7 @@ public class AcademiaResource {
     public Response cadastrarAcademia(AcademiaParameter academia) {
 
         Academia academiaEntity = new Academia(academia);
+        academiaEntity.setValorServico(new BigDecimal(12));
 
         boolean salvo = this.academiaService.cadastrar(academiaEntity);
 
@@ -60,7 +59,7 @@ public class AcademiaResource {
         Academia academia = this.academiaService.buscarDadosAcademia(academiaId);
 
         AlterarDadosAcademiaPresenter academiaPresenter = new AlterarDadosAcademiaPresenter(academia);
-        
+
         return academia != null ? ok(academiaPresenter).build() : status(BAD_REQUEST).build();
     }
 
