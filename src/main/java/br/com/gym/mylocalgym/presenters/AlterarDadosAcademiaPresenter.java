@@ -1,13 +1,14 @@
 package br.com.gym.mylocalgym.presenters;
 
 import br.com.gym.mylocalgym.entities.Academia;
+import java.io.Serializable;
 
 /**
  * @author Luciano
  */
-public class AlterarDadosAcademiaPresenter {
+public class AlterarDadosAcademiaPresenter implements Serializable {
     
-    private String razãoSocial;
+    private String razaoSocial;
     private String email; 
     private String telefone;
     private String cep;
@@ -19,7 +20,7 @@ public class AlterarDadosAcademiaPresenter {
     
     public AlterarDadosAcademiaPresenter(Academia academia){
         
-        this.razãoSocial = academia.getRazaoSocial();
+        this.razaoSocial = academia.getRazaoSocial();
         this.email = academia.getEmail();
         this.telefone = academia.getTelefone();
         this.cep = academia.getCep();
@@ -31,8 +32,8 @@ public class AlterarDadosAcademiaPresenter {
         
     }
 
-    public String getRazãoSocial() {
-        return razãoSocial;
+    public String getRazaoSocial() {
+        return razaoSocial;
     }
 
     public String getEmail() {

@@ -19,6 +19,8 @@ import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.ok;
 import static javax.ws.rs.core.Response.status;
+import static javax.ws.rs.core.Response.ok;
+import static javax.ws.rs.core.Response.status;
 
 /**
  * @author Matheus
@@ -53,12 +55,13 @@ public class AcademiaResource {
 
     @GET
     @Path("{academiaId}/dadosCompleto")
-    @Produces(MediaType.APPLICATION_JSON)
     public Response buscarDadosAcademia(@PathParam("academiaId") Integer academiaId) {
 
         Academia academia = this.academiaService.buscarDadosAcademia(academiaId);
 
-        return academia != null ? ok(new AlterarDadosAcademiaPresenter(academia)).build() : status(BAD_REQUEST).build();
+        AlterarDadosAcademiaPresenter academiaPresenter = new AlterarDadosAcademiaPresenter(academia);
+        
+        return academia != null ? ok(academiaPresenter).build() : status(BAD_REQUEST).build();
     }
 
     @POST
