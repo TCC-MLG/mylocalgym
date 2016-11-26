@@ -1,6 +1,7 @@
 package br.com.gym.mylocalgym.repository;
 
 import br.com.gym.mylocalgym.entities.Academia;
+import java.math.BigDecimal;
 
 
 
@@ -17,5 +18,7 @@ public interface AcademiaRepository {
     public Academia buscarDadosAcademia(Integer academiaId);
 
     public boolean alterarAcademia(Academia academiaEntity);
+
+    public boolean alterarServico(Academia academia);
 
 }

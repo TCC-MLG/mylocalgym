@@ -89,4 +89,16 @@ public class AcademiaResource {
         return alterado ? status(NO_CONTENT).build() : status(BAD_REQUEST).build();
     }
 
+    @POST
+    @Path("{academiaId}/alterar/servico/{valor}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response atualizarServico(
+            @PathParam("academiaId") Integer academiaId,
+            @PathParam("valor") BigDecimal valor) {
+
+        boolean alterado = this.academiaService.alterarServico(academiaId, valor);
+
+        return alterado ? status(NO_CONTENT).build() : status(BAD_REQUEST).build();
+    }
+
 }
