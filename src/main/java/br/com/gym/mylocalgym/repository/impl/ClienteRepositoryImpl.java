@@ -123,7 +123,7 @@ public class ClienteRepositoryImpl implements ClienteRepository {
     @Override
     public boolean atualizarExame(Integer clienteId, Cliente cliente) {
 
-        Integer result = null;
+        Integer result = 0;
 
         if (clienteId != null && cliente != null) {
             try {
@@ -133,6 +133,8 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 
                 this.session.getTransaction().commit();
                 this.session.close();
+                
+                result = 1;
             } catch (Exception e) {
 
             }
