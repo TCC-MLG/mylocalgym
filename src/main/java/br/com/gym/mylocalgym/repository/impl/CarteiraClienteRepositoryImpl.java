@@ -19,14 +19,18 @@ public class CarteiraClienteRepositoryImpl implements CarteiraClienteRepository 
                 + "(saldo, clienteId, dt_inclusao) "
                 + "values (:saldo, :clienteId, sysdate()) ";
 
-        int inseriu = this.session.createSQLQuery(sql)
-                .setParameter("saldo", carteiraCliente.getSaldo())
-                .setParameter("clienteId", carteiraCliente.getClienteId())
-                .executeUpdate();
+        int inseriu = 0;
+        try {
+            inseriu = this.session.createSQLQuery(sql)
+                    .setParameter("saldo", carteiraCliente.getSaldo())
+                    .setParameter("clienteId", carteiraCliente.getClienteId())
+                    .executeUpdate();
 
-        this.session.getTransaction().commit();
-        this.session.close();
-
+            this.session.getTransaction().commit();
+            this.session.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return inseriu > 0;
     }
 

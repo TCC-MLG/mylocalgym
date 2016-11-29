@@ -25,6 +25,8 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 
             this.session.getTransaction().commit();
             this.session.close();
+            
+            cliente.setId(id);
 
             return id != null;
 

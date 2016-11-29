@@ -60,6 +60,14 @@ public class CarteiraCliente implements Serializable {
     public CarteiraCliente(Integer id) {
         this.id = id;
     }
+    
+    public CarteiraCliente(Integer clienteId, BigDecimal valor){
+        
+        Cliente cliente = new Cliente(clienteId);
+        this.clienteId = cliente;
+        this.saldo = valor;
+        
+    }
 
     public CarteiraCliente(Integer id, BigDecimal saldo, Date dtInclusao) {
         this.id = id;
