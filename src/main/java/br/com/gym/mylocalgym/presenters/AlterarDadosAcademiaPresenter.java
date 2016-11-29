@@ -19,6 +19,7 @@ public class AlterarDadosAcademiaPresenter implements Serializable {
     private String cidade;
     private String estado;
     private BigDecimal valorServico;
+    private Integer numero;
     
     public AlterarDadosAcademiaPresenter(Academia academia){
         
@@ -32,6 +33,7 @@ public class AlterarDadosAcademiaPresenter implements Serializable {
         this.cidade = academia.getCidade();
         this.estado = academia.getEstado();
         this.valorServico = academia.getValorServico();
+        this.numero = academia.getNumero();
         
     }
 
@@ -77,6 +79,14 @@ public class AlterarDadosAcademiaPresenter implements Serializable {
 
     public void setValorServico(BigDecimal valorServico) {
         this.valorServico = valorServico;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
     }
                     
     

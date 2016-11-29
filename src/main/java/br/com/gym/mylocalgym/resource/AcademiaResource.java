@@ -81,6 +81,7 @@ public class AcademiaResource {
             academiaEntity.setCep(academia.getCep());
             academiaEntity.setBairro(academia.getBairro());
             academiaEntity.setComplemento(academia.getComplemento());
+            academiaEntity.setNumero(academia.getNumero());
 
             alterado = this.academiaService.alterarAcademia(academiaEntity);
 

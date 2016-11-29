@@ -15,6 +15,7 @@ public class AlterarAcademiaParameter {
     private String bairro;
     private String cidade;
     private String estado;
+    private Integer numero;
 
     public String getRazãoSocial() {
         return razãoSocial;
@@ -86,6 +87,14 @@ public class AlterarAcademiaParameter {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
     }
 
 }
